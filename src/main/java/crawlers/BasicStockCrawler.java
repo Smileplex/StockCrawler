@@ -3,12 +3,9 @@ package crawlers;
 import com.google.inject.Inject;
 import hibernate.dao.KeywordLinkQueueDao;
 import hibernate.model.KeywordLinkQueue;
-import org.jsoup.nodes.Element;
 import services.ParsingResult;
 import services.StockKeywordParser;
-import sun.management.resources.agent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,10 +28,14 @@ public class BasicStockCrawler implements Crawler {
         List<KeywordLinkQueue> keywordLinkQueues = getCrawlableLinks(20);
 
         for (KeywordLinkQueue keywordLinkQueue : keywordLinkQueues) {
-            ParsingResult parsingResult = stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
+            ParsingResult parsingResult =
+                    stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
+
             keywordLinkQueue.setStatus(3);
             keywordLinkQueueDao.update(keywordLinkQueue);
-            saveKeywordLinkQueues(parsingResult, keywordLinkQueue.getAgentId());
+
+            saveKeywordLinkQueues(parsingResult.getLinks(), parsingResult.getKeywordId(),
+                    keywordLinkQueue.getAgentId());
         }
     }
 
@@ -42,9 +43,9 @@ public class BasicStockCrawler implements Crawler {
         return keywordLinkQueueDao.fetchMultipleRows(max);
     }
 
-    private void saveKeywordLinkQueues(ParsingResult parsingResult, int agentId) {
-        for (String link : parsingResult.getLinks()) {
-            keywordLinkQueueDao.saveIfNotExist(link, agentId, parsingResult.getKeywordId());
+    private void saveKeywordLinkQueues(List<String> links, int keywordId, int agentId) {
+        for (String link : links) {
+            keywordLinkQueueDao.saveIfNotExist(link, agentId, keywordId);
         }
     }
 }
