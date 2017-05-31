@@ -3,7 +3,7 @@ package crawlers;
 import com.google.inject.Inject;
 import hibernate.dao.KeywordLinkQueueDao;
 import hibernate.model.KeywordLinkQueue;
-import services.ParsingResult;
+import models.ParsingResult;
 import services.StockKeywordParser;
 
 import java.util.List;

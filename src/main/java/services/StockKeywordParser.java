@@ -1,6 +1,6 @@
 package services;
 
-import java.util.List;
+import models.ParsingResult;
 
 /**
  * Created by DongwooSeo on 2017-05-29.

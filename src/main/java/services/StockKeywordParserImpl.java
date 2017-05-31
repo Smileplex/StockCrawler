@@ -3,6 +3,7 @@ package services;
 import com.google.inject.Inject;
 import hibernate.dao.RelatedKeywordLinkDao;
 import models.KeywordInfo;
+import models.ParsingResult;
 import org.jsoup.nodes.Document;
 
 /**
