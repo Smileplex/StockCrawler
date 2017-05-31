@@ -1,17 +1,23 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by DongwooSeo on 2017-05-31.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class StockInfo {
+    public static final String CHART_WEEKLY_URL = "https://ssl.pstatic.net/imgfinance/chart/mobile/candle/week/%s_search.png?sidcode=1398073782866";
+    public static final String CHART_DAILY_URL = "https://ssl.pstatic.net/imgfinance/chart/mobile/candle/day/%s_search.png?sidcode=1398073782866";
+    public static final String CHART_MONTHLY_URL = "https://ssl.pstatic.net/imgfinance/chart/mobile/candle/month/%s_search.png?sidcode=1398073782866";
     private String stockName;
     private String stockCode;
-    private int stockPrice;
-    private int stockPricePrev;
-    private int stockPriceMax;
-    private int stockPriceMin;
-    private int stockPriceFluct;
-    private double stockPriceFluctRate;
+    private int priceLast;
+    private int prevClose;
+    private int highVal;
+    private int lowVal;
+    private int priceChange;
+    private double priceChangeRate;
     private String chartDailyUrl;
     private String chartWeeklyUrl;
     private String chartMonthlyUrl;
@@ -32,92 +38,63 @@ public class StockInfo {
         this.stockCode = stockCode;
     }
 
-    public int getStockPrice() {
-        return stockPrice;
+    public int getPriceLast() {
+        return priceLast;
     }
 
-    public void setStockPrice(int stockPrice) {
-        this.stockPrice = stockPrice;
+    public void setPriceLast(int priceLast) {
+        this.priceLast = priceLast;
     }
 
-    public int getStockPricePrev() {
-        return stockPricePrev;
+    public int getPrevClose() {
+        return prevClose;
     }
 
-    public void setStockPricePrev(int stockPricePrev) {
-        this.stockPricePrev = stockPricePrev;
+    public void setPrevClose(int prevClose) {
+        this.prevClose = prevClose;
     }
 
-    public int getStockPriceMax() {
-        return stockPriceMax;
+    public int getHighVal() {
+        return highVal;
     }
 
-    public void setStockPriceMax(int stockPriceMax) {
-        this.stockPriceMax = stockPriceMax;
+    public void setHighVal(int highVal) {
+        this.highVal = highVal;
     }
 
-    public int getStockPriceMin() {
-        return stockPriceMin;
+    public int getLowVal() {
+        return lowVal;
     }
 
-    public void setStockPriceMin(int stockPriceMin) {
-        this.stockPriceMin = stockPriceMin;
+    public void setLowVal(int lowVal) {
+        this.lowVal = lowVal;
     }
 
-    public int getStockPriceFluct() {
-        return stockPriceFluct;
+    public int getPriceChange() {
+        return priceChange;
     }
 
-    public void setStockPriceFluct(int stockPriceFluct) {
-        this.stockPriceFluct = stockPriceFluct;
+    public void setPriceChange(int priceChange) {
+        this.priceChange = priceChange;
+    }
+
+    public double getPriceChangeRate() {
+        return priceChangeRate;
+    }
+
+    public void setPriceChangeRate(double priceChangeRate) {
+        this.priceChangeRate = priceChangeRate;
     }
 
     public String getChartDailyUrl() {
-        return chartDailyUrl;
-    }
-
-    public void setChartDailyUrl(String chartDailyUrl) {
-        this.chartDailyUrl = chartDailyUrl;
+        return String.format(CHART_DAILY_URL,stockCode);
     }
 
     public String getChartWeeklyUrl() {
-        return chartWeeklyUrl;
-    }
-
-    public void setChartWeeklyUrl(String chartWeeklyUrl) {
-        this.chartWeeklyUrl = chartWeeklyUrl;
+        return String.format(CHART_WEEKLY_URL,stockCode);
     }
 
     public String getChartMonthlyUrl() {
-        return chartMonthlyUrl;
-    }
-
-    public void setChartMonthlyUrl(String chartMonthlyUrl) {
-        this.chartMonthlyUrl = chartMonthlyUrl;
-    }
-
-    public double getStockPriceFluctRate() {
-        return stockPriceFluctRate;
-    }
-
-    public void setStockPriceFluctRate(double stockPriceFluctRate) {
-        this.stockPriceFluctRate = stockPriceFluctRate;
-    }
-
-    @Override
-    public String toString() {
-        return "StockInfo{" +
-                "stockName='" + stockName + '\'' +
-                ", stockCode='" + stockCode + '\'' +
-                ", stockPrice=" + stockPrice +
-                ", stockPricePrev=" + stockPricePrev +
-                ", stockPriceMax=" + stockPriceMax +
-                ", stockPriceMin=" + stockPriceMin +
-                ", stockPriceFluct=" + stockPriceFluct +
-                ", stockPriceFluctRate=" + stockPriceFluctRate +
-                ", chartDailyUrl='" + chartDailyUrl + '\'' +
-                ", chartWeeklyUrl='" + chartWeeklyUrl + '\'' +
-                ", chartMonthlyUrl='" + chartMonthlyUrl + '\'' +
-                '}';
+        return String.format(CHART_MONTHLY_URL,stockCode);
     }
 }

@@ -16,8 +16,6 @@ public class StockKeywordParserImpl implements StockKeywordParser {
     private final StockDetailsFactory stockDetailsFactory;
     private final StockFetcher stockFetcher;
     private final RelatedKeywordLinkDao relatedKeywordLinkDao;
-    private KeywordInfo keywordInfo;
-    private int stockKeywordId;
 
     @Inject
     public StockKeywordParserImpl(PageFetcher pageFetcher, StockKeywordGenerator stockKeywordGenerator,
@@ -35,8 +33,8 @@ public class StockKeywordParserImpl implements StockKeywordParser {
         PageParser pageParser = stockDetailsFactory.create(agentId);
         Document document = pageFetcher.fetchDocument(link);
 
-        keywordInfo = pageParser.parse(document);
-        stockKeywordId = stockKeywordGenerator.generate(keywordInfo.getKeywordName(), link, agentId, keywordInfo.getKeywordType());
+        KeywordInfo keywordInfo = pageParser.parse(document);
+        int stockKeywordId = stockKeywordGenerator.generate(keywordInfo.getKeywordName(), link, agentId, keywordInfo.getKeywordType());
 
         if (keywordInfo.getKeywordType() == STOCK_KEYWORD) {
             stockFetcher.parseStock(document, stockKeywordId);

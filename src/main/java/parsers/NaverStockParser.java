@@ -29,20 +29,21 @@ public class NaverStockParser implements PageParser {
 
     @Override
     public KeywordInfo parse(Document document) {
-        KeywordInfo keywordInfo = new KeywordInfo();
-        keywordInfo.setKeywordName(parseKeywordName(document));
-        keywordInfo.setKeywordType(checkKeywordTypeBy(document, parseKeywordName(document)));
-        keywordInfo.setRelatedKeywordLinks(parseRelatedKeywordLinks(document));
+        String keywordName = getKeywordName(document);
+        KeywordInfo keywordInfo = new KeywordInfo(
+                keywordName,
+                getKeywordType(document,keywordName),
+                getRelatedKeywordLinks(document));
         return keywordInfo;
     }
 
-    private String parseKeywordName(Document document) {
+    private String getKeywordName(Document document) {
         return document.select("input#nx_query").attr("value").trim()
                 .replaceAll("주가", "")
                 .replaceAll("주식", "");
     }
 
-    private int checkKeywordTypeBy(Document document, String keywordName) {
+    private int getKeywordType(Document document, String keywordName) {
         String pageHtml = document.toString();
         boolean isStockKeyword = pageHtml.contains("<div class=\"stock_tlt\">");
         if (!isStockKeyword) {
@@ -56,7 +57,7 @@ public class NaverStockParser implements PageParser {
         }
     }
 
-    private List<String> parseRelatedKeywordLinks(Document document){
+    private List<String> getRelatedKeywordLinks(Document document){
         List<String> links = new ArrayList<String>();
         Elements elements = document.select("div._rk_hcheck a");
         for(Element element : elements){

@@ -5,9 +5,6 @@ package crawlers;
  */
 public class UpdateStockCrawler implements Crawler {
 
-
-
-
     @Override
     public void execute() {
 

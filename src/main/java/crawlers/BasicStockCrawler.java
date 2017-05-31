@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class BasicStockCrawler implements Crawler {
 
+    public static final int FINISHED = 3;
     private final KeywordLinkQueueDao keywordLinkQueueDao;
     private final StockKeywordParser stockKeywordParser;
 
@@ -31,7 +32,7 @@ public class BasicStockCrawler implements Crawler {
             ParsingResult parsingResult =
                     stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
 
-            keywordLinkQueue.setStatus(3);
+            keywordLinkQueue.setStatus(FINISHED);
             keywordLinkQueueDao.update(keywordLinkQueue);
 
             saveKeywordLinkQueues(parsingResult.getLinks(), parsingResult.getKeywordId(),
