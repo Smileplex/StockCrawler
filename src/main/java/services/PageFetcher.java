@@ -10,5 +10,5 @@ import java.io.IOException;
  * Created by DongwooSeo on 2017-05-28.
  */
 public interface PageFetcher {
-    Document fetchDocument(String link);
+    Document fetch(String link);
 }

@@ -1,75 +1,44 @@
 package services;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import helper.Helper;
 import hibernate.dao.StockDao;
+import models.StockInfo;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by DongwooSeo on 2017-05-28.
  */
 public class StockFetcherImpl {
+    public static final String STOCK_REQUEST_URL = "https://search.naver.com/p/n.search/finance/api/item/itemJson.nhn?_callback=window.__jindo2_callback._575&code=%s";
+    public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36";
+    public static final int TIMEOUT = 30 * 1000;
+    private final ObjectMapper objectMapper;
     private StockDao stockDao;
 
     public StockFetcherImpl(StockDao stockDao) {
+        objectMapper = new ObjectMapper();
         this.stockDao = stockDao;
     }
 
-    public void parseStock(Document document, int stockKeywordId) {
-        String content = document.toString();
-//        try {
-//            String stockName = ParseCommon.getTarget(content, DataCommon.getValueBy("StockNameStarted", parsers),
-//                    DataCommon.getValueBy("StockNameEnded", parsers));
-//            String stockCode = ParseCommon.getTarget(content, DataCommon.getValueBy("StockCodeStarted", parsers),
-//                    DataCommon.getValueBy("StockCodeEnded", parsers));
-//            String url = String.format(DataCommon.getValueBy("StockUrlFormat", parsers), stockCode);
-//
-//            Document stockInfo = Jsoup.connect(url).timeout(agentConfig.getTimeout() * 1000)
-//                    .userAgent(agentConfig.getUserAgent()).get();
-//
-//            int stockPrice = Integer.parseInt(
-//                    ParseCommon.getTarget(stockInfo.toString(), DataCommon.getValueBy("StockPriceStarted", parsers),
-//                            DataCommon.getValueBy("StockPriceEnded", parsers)));
-//            int stockPricePrev = Integer.parseInt(
-//                    ParseCommon.getTarget(stockInfo.toString(), DataCommon.getValueBy("StockPricePrevStarted", parsers),
-//                            DataCommon.getValueBy("StockPricePrevEnded", parsers)));
-//            int stockPriceMax = Integer.parseInt(
-//                    ParseCommon.getTarget(stockInfo.toString(), DataCommon.getValueBy("StockPriceMaxStarted", parsers),
-//                            DataCommon.getValueBy("StockPriceMaxEnded", parsers)));
-//            int stockPriceMin = Integer.parseInt(
-//                    ParseCommon.getTarget(stockInfo.toString(), DataCommon.getValueBy("StockPriceMinStarted", parsers),
-//                            DataCommon.getValueBy("StockPriceMinEnded", parsers)));
-//            int stockPriceFluct = Integer.parseInt(ParseCommon.getTarget(stockInfo.toString(),
-//                    DataCommon.getValueBy("StockPriceFluctStarted", parsers),
-//                    DataCommon.getValueBy("StockPriceFluctEnded", parsers)));
-//            double stockPriceFluctRate = Double.parseDouble(ParseCommon.getTarget(stockInfo.toString(),
-//                    DataCommon.getValueBy("StockPriceFluctRateStarted", parsers),
-//                    DataCommon.getValueBy("StockPriceFluctRateEnded", parsers)));
-//
-//            String chartDailyUrl = String.format(DataCommon.getValueBy("StockChartDailyFormat", parsers), stockCode);
-//            String chartWeeklyUrl = String.format(DataCommon.getValueBy("StockChartWeeklyFormat", parsers), stockCode);
-//            String chartMonthlyUrl = String.format(DataCommon.getValueBy("StockChartMonthlyFormat", parsers),
-//                    stockCode);
-//
-//            System.out.println(stockName + " | " + stockCode + " | " + stockPrice + " | " + stockPricePrev + " | "
-//                    + stockPriceMax + " | " + stockPriceMin + " | " + stockPriceFluct + " | " + stockPriceFluctRate);
-//            saveStock(stockKeywordId, stockName, stockCode, stockPrice, stockPricePrev, stockPriceMax, stockPriceMin, stockPriceFluct,
-//                    stockPriceFluctRate, chartDailyUrl, chartWeeklyUrl, chartMonthlyUrl);
-//        } catch (IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        } catch (NumberFormatException e){
-//            //e.printStackTrace();
-//            //System.out.println("거래정지 종목.");
-//        }
-
-    }
-
-    private void saveStock(int keywordId, String name, String code, int price, int pricePrev, int priceMax, int priceMin,
-                           int priceFluct, double priceFluctRate, String chartDailyUrl, String chartWeeklyUrl,
-                           String chartMonthlyUrl) {
-        stockDao.upsertStock(keywordId, name, code, price, pricePrev, priceMax, priceMin, priceFluct, priceFluctRate, chartDailyUrl, chartWeeklyUrl, chartMonthlyUrl);
+    public void fetch(Document document, int keywordId) {
+        String stockName = Helper.cutStringInRange(document.toString(),"sItemName : \"","\"");
+        String stockCode = Helper.cutStringInRange(document.toString(), "sItemCode : \"", "\"");
+        try {
+            Document rawResult = Jsoup.connect(String.format(STOCK_REQUEST_URL,stockCode)).timeout(TIMEOUT).userAgent(USER_AGENT).get();
+            String jsonStock = Helper.cutStringInRange(rawResult.toString(),"{\"result\":",",\"resultCode\"");
+            StockInfo stockInfo = objectMapper.readValue(jsonStock, StockInfo.class);
+            stockInfo.setStockName(stockName);
+            stockInfo.setStockCode(stockCode);
+            stockDao.upsertStock(keywordId, stockInfo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e){
+            e.printStackTrace();
+            System.out.println("거래정지 종목.");
+        }
     }
 }

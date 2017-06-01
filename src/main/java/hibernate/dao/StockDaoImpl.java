@@ -1,6 +1,7 @@
 package hibernate.dao;
 
 import hibernate.model.Stock;
+import models.StockInfo;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -11,10 +12,8 @@ import java.util.Date;
 
 public class StockDaoImpl extends AbstractDao<Integer, Stock> implements StockDao{
 
-
-	public void upsertStock(int keywordId, String name, String code, int price, int pricePrev, int priceMax,
-			int priceMin, int priceFluct, double priceFluctRate, String chartDailyUrl, String chartWeeklyUrl,
-			String chartMonthlyUrl) {
+	@Override
+	public void upsertStock(int keywordId, StockInfo stockInfo) {
 		Session session = getSession();
 		Transaction tx = null;
 		try {
@@ -25,35 +24,35 @@ public class StockDaoImpl extends AbstractDao<Integer, Stock> implements StockDa
 			if (entityStock == null) {
 				Stock stock = new Stock();
 				stock.setKeywordId(keywordId);
-				stock.setName(name);
+				stock.setName(stockInfo.getStockName());
 				try{
-					stock.setCode(Integer.parseInt(code));
+					stock.setCode(Integer.parseInt(stockInfo.getStockCode()));
 				}catch(NumberFormatException e){
 					//e.printStackTrace();
 					System.out.println("StockCode에 문자포함("+stock.getName()+")");
 				}
-				stock.setPrice(price);
-				stock.setPricePrev(pricePrev);
-				stock.setPriceMax(priceMax);
-				stock.setPriceMin(priceMin);
-				stock.setFluct(priceFluct);
-				stock.setFluctRate(priceFluctRate);
-				stock.setChartDaily(chartDailyUrl);
-				stock.setChartWeekly(chartWeeklyUrl);
-				stock.setChartMonthly(chartMonthlyUrl);
+				stock.setPrice(stockInfo.getPriceLast());
+				stock.setPricePrev(stockInfo.getPrevClose());
+				stock.setPriceMax(stockInfo.getHighVal());
+				stock.setPriceMin(stockInfo.getLowVal());
+				stock.setFluct(stockInfo.getPriceChange());
+				stock.setFluctRate(stockInfo.getPriceChangeRate());
+				stock.setChartDaily(stockInfo.getChartDailyUrl());
+				stock.setChartWeekly(stockInfo.getChartWeeklyUrl());
+				stock.setChartMonthly(stockInfo.getChartMonthlyUrl());
 				stock.setDateCreated(new Timestamp(new Date().getTime()));
 				stock.setDateUpdated(new Timestamp(new Date().getTime()));
 				session.save(stock);
 			}else{
-				entityStock.setPrice(price);
-				entityStock.setPricePrev(pricePrev);
-				entityStock.setPriceMax(priceMax);
-				entityStock.setPriceMin(priceMin);
-				entityStock.setFluct(priceFluct);
-				entityStock.setFluctRate(priceFluctRate);
-				entityStock.setChartDaily(chartDailyUrl);
-				entityStock.setChartWeekly(chartWeeklyUrl);
-				entityStock.setChartMonthly(chartMonthlyUrl);
+				entityStock.setPrice(stockInfo.getPriceLast());
+				entityStock.setPricePrev(stockInfo.getPrevClose());
+				entityStock.setPriceMax(stockInfo.getHighVal());
+				entityStock.setPriceMin(stockInfo.getLowVal());
+				entityStock.setFluct(stockInfo.getPriceChange());
+				entityStock.setFluctRate(stockInfo.getPriceChangeRate());
+				entityStock.setChartDaily(stockInfo.getChartDailyUrl());
+				entityStock.setChartWeekly(stockInfo.getChartWeeklyUrl());
+				entityStock.setChartMonthly(stockInfo.getChartMonthlyUrl());
 				entityStock.setDateUpdated(new Timestamp(new Date().getTime()));
 				session.save(entityStock);
 			}
@@ -63,6 +62,6 @@ public class StockDaoImpl extends AbstractDao<Integer, Stock> implements StockDa
 			tx.rollback();
 			System.out.println("rollback!!");
 		}
-		// TODO Auto-generated method stub
+
 	}
 }

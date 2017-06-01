@@ -19,15 +19,15 @@ public class Helper {
         return false;
     }
 
-    public static String getTarget(String content, String start, String end){
+    public static String cutStringInRange(String content, String startText, String endText){
         //System.out.println(content.contains(start));
-        if(!content.contains(start) || !content.contains(end)){
+        if(!content.contains(startText) || !content.contains(endText)){
             return "";
         }
-        int startIndex = content.indexOf(start) + start.length();
+        int startIndex = content.indexOf(startText) + startText.length();
         content = content.substring(startIndex);
-        String target = content.substring(0, content.indexOf(end));
-        content = content.substring(content.indexOf(end) + end.length());
+        String target = content.substring(0, content.indexOf(endText));
+        content = content.substring(content.indexOf(endText) + endText.length());
         return target.trim();
 
     }
