@@ -59,9 +59,9 @@ public class NaverStockParser implements PageParser {
 
     private List<String> getRelatedKeywordLinks(Document document){
         List<String> links = new ArrayList<String>();
-        Elements elements = document.select("div._rk_hcheck a");
-        for(Element element : elements){
-            String link = SEARCH_QUERY + element.attr("href");
+        Elements anchorTags = document.select("div._rk_hcheck a");
+        for(Element anchorTag : anchorTags){
+            String link = SEARCH_QUERY + anchorTag.attr("href");
             if(!links.contains(link))
                 links.add(link);
         }
