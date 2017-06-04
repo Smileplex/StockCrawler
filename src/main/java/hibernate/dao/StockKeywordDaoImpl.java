@@ -20,26 +20,20 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 		StockKeyword stockKeyword = null;
 		try {
 			tx = session.beginTransaction();
-			/*
-			 * Query query = getSession() .createSQLQuery(
-			 * "select * from KeywordLinkQueue a where Status = 1 or (BookingDate + INTERVAL 10 MINUTE < now() and status = 2) order by Id limit 1"
-			 * ) .addEntity(KeywordLinkQueue.class);
-			 */
 			Query query = session.createQuery(
-					"from StockKeyword a where Status = 1 or (DateUpdated < :time and status = 2) or status = 3 order by status, DateUpdated");
-			query.setParameter("time", new Timestamp(new Date().getTime() - 10 * 60 * 1000));
+					"from StockKeyword a where TypeId=1 order by DateUpdated asc");
 			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
 			query.setMaxResults(1);
 
 			List<StockKeyword> result = query.list();
+
 			if (!result.isEmpty()) {
 				stockKeyword = result.get(0);
-			}
-			if (stockKeyword != null) {
 				stockKeyword.setStatus(2);
 				stockKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
 				session.update(stockKeyword);
 			}
+
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
@@ -47,7 +41,7 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 		}
 		return stockKeyword;
 	}
-	public int saveKeyword(String keywordName, String link, int keywordMainId, int agentId, int typeId) {
+	public int save(String keywordName, String link, int keywordMainId, int agentId, int typeId) {
 		int stockKeywordId = 0;
 
 		Session session = getSession();
@@ -72,12 +66,9 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 				entityKeyword.setTypeId(typeId);
 				entityKeyword.setStatus(1);
 				if (!entityKeyword.getName().isEmpty()) {
-					// System.out.println(keyword.getName());
 					stockKeywordId = (Integer) session.save(entityKeyword);
 				}
 			} else {
-				entityKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
-				session.update(entityKeyword);
 				stockKeywordId = entityKeyword.getId();
 			}
 
@@ -109,8 +100,6 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			// System.out.println("Duplicate keywordId at = " + stockKeywordId +
-			// " / rollback()");
 		}
 		return isExist;
 	}

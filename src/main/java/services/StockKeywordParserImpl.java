@@ -40,7 +40,7 @@ public class StockKeywordParserImpl implements StockKeywordParser {
         int stockKeywordId = stockKeywordGenerator.generate(keywordInfo.getKeywordName(), link, agentId, keywordInfo.getKeywordType());
         System.out.println(String.format("%s parsed [type : %s]", keywordInfo.getKeywordName(), keywordInfo.getKeywordType()));
 
-        relatedKeywordLinkDao.saveRelatedKeyword(parentId, stockKeywordId, 0);
+        relatedKeywordLinkDao.save(parentId, stockKeywordId, 0);
         return new ParsingResult(keywordInfo.getRelatedKeywordLinks(), stockKeywordId);
     }
 

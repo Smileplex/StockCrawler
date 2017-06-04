@@ -2,9 +2,8 @@ package hibernate.model;
 
 import java.sql.Timestamp;
 
-public class Stock {
+public class StockDetail {
 	private int id;
-	private int keywordId;
 	private String name;
 	private int code;
 	private int pricePrev;
@@ -24,12 +23,6 @@ public class Stock {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getKeywordId() {
-		return keywordId;
-	}
-	public void setKeywordId(int keywordId) {
-		this.keywordId = keywordId;
 	}
 	public String getName() {
 		return name;

@@ -77,7 +77,7 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			e.printStackTrace();
+			System.out.println("Duplicated insert occured in KeywordLinkQueue");;
 		}
 
 	}

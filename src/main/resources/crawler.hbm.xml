@@ -36,7 +36,7 @@
 		<id name="id" type="int">
 			<column name="Id"/>
 			<generator class="foreign">
-				<param name="property">stock</param>
+				<param name="property">stockDetail</param>
 			</generator>
 		</id>
 		<one-to-one name="agent" class="hibernate.model.Agent"></one-to-one>
@@ -217,15 +217,25 @@
 			<column name = "Correl"/>
 		</property>
 	</class>
-	
-	<class name="hibernate.model.Stock" table="Stock">
+
+	<class name="hibernate.model.StockDetailKeyword" table="StockDetailKeyword">
 		<id name="id" type="int">
 			<column name="Id"/>
 			<generator class="identity"/>
 		</id>
-		<property name="keywordId" type="int">
-			<column name = "KeywordId"/>
+		<property name="stockDetailId" type="int">
+			<column name = "StockDetailId"/>
 		</property>
+		<property name="stockKeywordId" type="int">
+			<column name = "StockKeywordId"/>
+		</property>
+	</class>
+
+	<class name="hibernate.model.StockDetail" table="StockDetail">
+		<id name="id" type="int">
+			<column name="Id"/>
+			<generator class="identity"/>
+		</id>
 		<property name="name" type="java.lang.String" unique="true" >
 			<column name="Name" />
 		</property>

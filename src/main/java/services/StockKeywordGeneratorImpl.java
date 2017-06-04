@@ -2,10 +2,8 @@ package services;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import hibernate.dao.KeywordDao;
 import hibernate.dao.KeywordMainDao;
 import hibernate.dao.StockKeywordDao;
-import hibernate.dao.StockKeywordDaoImpl;
 
 /**
  * Created by DongwooSeo on 2017-05-28.
@@ -28,7 +26,7 @@ public class StockKeywordGeneratorImpl implements StockKeywordGenerator {
         if (keywordMainId == 0) {
             return 0;
         }
-        int stockKeywordId = stockKeywordDao.saveKeyword(keywordName, link, keywordMainId, agentId, typeId);
+        int stockKeywordId = stockKeywordDao.save(keywordName, link, keywordMainId, agentId, typeId);
         return stockKeywordId;
     }
 }

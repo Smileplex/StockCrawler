@@ -4,8 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import helper.Helper;
-import hibernate.dao.StockDao;
-import hibernate.model.Stock;
+import hibernate.dao.StockDetailDao;
 import models.StockInfo;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,15 +20,13 @@ public class StockFetcherImpl implements StockFetcher{
     public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36";
     public static final int TIMEOUT = 30 * 1000;
     private final ObjectMapper objectMapper;
-    private StockDao stockDao;
 
     @Inject
-    public StockFetcherImpl(StockDao stockDao) {
+    public StockFetcherImpl() {
         objectMapper = new ObjectMapper();
-        this.stockDao = stockDao;
     }
 
-    public void fetch(Document document, int keywordId) {
+    public StockInfo fetch(Document document, int keywordId) {
         String stockName = Helper.cutStringInRange(document.toString(),"sItemName : \"","\"");
         String stockCode = Helper.cutStringInRange(document.toString(), "sItemCode : \"", "\"");
         try {
@@ -38,12 +35,13 @@ public class StockFetcherImpl implements StockFetcher{
             StockInfo stockInfo = objectMapper.readValue(jsonStock, StockInfo.class);
             stockInfo.setStockName(stockName);
             stockInfo.setStockCode(stockCode);
-            stockDao.upsertStock(keywordId, stockInfo);
+            return stockInfo;
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e){
             e.printStackTrace();
             System.out.println("거래정지 종목.");
         }
+        return null;
     }
 }
