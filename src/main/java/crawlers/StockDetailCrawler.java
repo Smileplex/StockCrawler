@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Singleton
 public class StockDetailCrawler implements Crawler {
-    private static final int FINISHED = 3;
+    private static final int PARSING_FINISHED = 3;
     private final StockKeywordDao stockKeywordDao;
     private final StockDetailParser stockDetailParser;
 
@@ -34,7 +34,7 @@ public class StockDetailCrawler implements Crawler {
                 while (true) {
                     StockKeyword stockKeyword = getStockKeyword();
                     stockDetailParser.parse(stockKeyword.getLink(), stockKeyword.getId());
-                    stockKeyword.setStatus(FINISHED);
+                    stockKeyword.setStatus(PARSING_FINISHED);
                     stockKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
                     stockKeywordDao.update(stockKeyword);
                 }

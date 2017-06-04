@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Singleton
 public class StockKeywordCrawler implements Crawler {
-    private static final int FINISHED = 3;
+    private static final int PARSING_FINISHED = 3;
     private final KeywordLinkQueueDao keywordLinkQueueDao;
     private final StockKeywordParser stockKeywordParser;
 
@@ -38,7 +38,7 @@ public class StockKeywordCrawler implements Crawler {
                     if (parsingResult == null) {
                         continue;
                     }
-                    keywordLinkQueue.setStatus(FINISHED);
+                    keywordLinkQueue.setStatus(PARSING_FINISHED);
                     keywordLinkQueueDao.update(keywordLinkQueue);
                     keywordLinkQueueDao.saveAll(parsingResult.getLinks(), parsingResult.getKeywordId(),
                             keywordLinkQueue.getAgentId());

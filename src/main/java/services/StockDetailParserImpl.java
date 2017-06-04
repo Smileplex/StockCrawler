@@ -32,7 +32,7 @@ public class StockDetailParserImpl implements StockDetailParser {
         Document pageHtml = pageFetcher.fetch(link);
         StockInfo stockInfo = stockFetcher.fetch(pageHtml, stockKeywordId);
         int stockDetailId = stockDetailDao.save(stockInfo);
-        if(stockDetailId== NOT_EXIST)
+        if(stockDetailId==NOT_EXIST)
             return;
         stockDetailKeywordDao.save(stockDetailId, stockKeywordId);
     }
