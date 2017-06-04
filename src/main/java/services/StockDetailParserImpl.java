@@ -11,6 +11,7 @@ import org.jsoup.nodes.Document;
  */
 public class StockDetailParserImpl implements StockDetailParser {
 
+    public static final int NOT_EXIST = 0;
     private final PageFetcher pageFetcher;
     private final StockFetcher stockFetcher;
     private final StockDetailDao stockDetailDao;
@@ -31,7 +32,7 @@ public class StockDetailParserImpl implements StockDetailParser {
         Document pageHtml = pageFetcher.fetch(link);
         StockInfo stockInfo = stockFetcher.fetch(pageHtml, stockKeywordId);
         int stockDetailId = stockDetailDao.save(stockInfo);
-        if(stockDetailId==0)
+        if(stockDetailId== NOT_EXIST)
             return;
         stockDetailKeywordDao.save(stockDetailId, stockKeywordId);
     }
