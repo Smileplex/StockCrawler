@@ -23,7 +23,6 @@ public class NaverStockParser implements PageParser {
     private static final int STOCK_RELATED_KEYWORD = 2;
     private static final int NOT_A_STOCK_KEYWORD = 3;
 
-
     @Override
     public KeywordInfo parse(Document document) {
         String keywordName = getKeywordName(document);
@@ -33,7 +32,7 @@ public class NaverStockParser implements PageParser {
         }
         KeywordInfo keywordInfo = new KeywordInfo(
                 keywordName,
-                getKeywordType(document,keywordName),
+                keywordType,
                 getRelatedKeywordLinks(document));
         return keywordInfo;
     }
@@ -50,8 +49,8 @@ public class NaverStockParser implements PageParser {
     }
 
     private int getKeywordType(Document document, String keywordName) {
-        String pageHtml = document.toString();
-        boolean isStockKeyword = pageHtml.contains("<div class=\"stock_tlt\">");
+        String pageText = document.toString();
+        boolean isStockKeyword = pageText.contains("<div class=\"stock_tlt\">");
         if (!isStockKeyword) {
             boolean isStockRelatedKeyword = Helper.containValue("관련주,연관주,테마주,수혜주,대장주", keywordName);
             if (isStockRelatedKeyword)
@@ -63,17 +62,15 @@ public class NaverStockParser implements PageParser {
         }
     }
 
-
-
     private List<String> getRelatedKeywordLinks(Document document){
-        List<String> links = new ArrayList<String>();
+        List<String> collectedLinks = new ArrayList<String>();
         Elements anchorTags = document.select("div._rk_hcheck a");
         for(Element anchorTag : anchorTags){
             String link = SEARCH_QUERY + anchorTag.attr("href");
-            if(!links.contains(link))
-                links.add(link);
+            if(!collectedLinks.contains(link))
+                collectedLinks.add(link);
         }
-        return links;
+        return collectedLinks;
     }
 
 }

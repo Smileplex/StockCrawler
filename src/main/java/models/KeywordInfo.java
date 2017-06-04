@@ -6,9 +6,9 @@ import java.util.List;
  * Created by DongwooSeo on 2017-05-29.
  */
 public class KeywordInfo {
-    String keywordName;
-    int keywordType;
-    List<String> relatedKeywordLinks;
+    private String keywordName;
+    private int keywordType;
+    private List<String> relatedKeywordLinks;
 
     public KeywordInfo() {
 

@@ -31,9 +31,9 @@ public class StockKeywordParserImpl implements StockKeywordParser {
     @Override
     public ParsingResult parse(String link, int agentId, int parentId) {
         PageParser pageParser = stockDetailsFactory.create(agentId);
-        Document document = pageFetcher.fetch(link);
+        Document pageHtml = pageFetcher.fetch(link);
 
-        KeywordInfo keywordInfo = pageParser.parse(document);
+        KeywordInfo keywordInfo = pageParser.parse(pageHtml);
         if (keywordInfo == null)
             return null;
 

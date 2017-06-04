@@ -9,14 +9,14 @@ import services.StockKeywordParser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by DongwooSeo on 2017-05-27.
  */
 @Singleton
 public class BasicStockCrawler implements Crawler {
-
-    public static final int FINISHED = 3;
+    private static final int FINISHED = 3;
     private final KeywordLinkQueueDao keywordLinkQueueDao;
     private final StockKeywordParser stockKeywordParser;
 
@@ -34,11 +34,13 @@ public class BasicStockCrawler implements Crawler {
             Thread thread = new Thread(() -> {
                 while (true) {
                     KeywordLinkQueue keywordLinkQueue = getCrawlableLink();
+
                     ParsingResult parsingResult =
                             stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
                     if (parsingResult == null) {
                         continue;
                     }
+
                     keywordLinkQueue.setStatus(FINISHED);
                     keywordLinkQueueDao.update(keywordLinkQueue);
 
