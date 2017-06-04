@@ -24,7 +24,7 @@ public class StockKeywordGeneratorImpl implements StockKeywordGenerator {
 
     @Override
     public int generate(String keywordName, String link, int agentId, int typeId) {
-        int keywordMainId = keywordMainDao.saveKeywordMain(keywordName);
+        int keywordMainId = keywordMainDao.saveKeywordMain(keywordName, link);
         if (keywordMainId == 0) {
             return 0;
         }

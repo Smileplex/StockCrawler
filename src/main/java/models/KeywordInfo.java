@@ -10,6 +10,10 @@ public class KeywordInfo {
     int keywordType;
     List<String> relatedKeywordLinks;
 
+    public KeywordInfo() {
+
+    }
+
     public KeywordInfo(String keywordName, int keywordType, List<String> relatedKeywordLinks) {
         this.keywordName = keywordName;
         this.keywordType = keywordType;
@@ -19,24 +23,11 @@ public class KeywordInfo {
     public String getKeywordName() {
         return keywordName;
     }
-
-    public void setKeywordName(String keywordName) {
-        this.keywordName = keywordName;
-    }
-
     public int getKeywordType() {
         return keywordType;
     }
-
-    public void setKeywordType(int keywordType) {
-        this.keywordType = keywordType;
-    }
-
     public List<String> getRelatedKeywordLinks() {
         return relatedKeywordLinks;
     }
 
-    public void setRelatedKeywordLinks(List<String> relatedKeywordLinks) {
-        this.relatedKeywordLinks = relatedKeywordLinks;
-    }
 }

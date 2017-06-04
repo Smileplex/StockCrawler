@@ -10,8 +10,7 @@ public interface KeywordLinkQueueDao {
 	KeywordLinkQueue fetchFirstRow();
 	List<KeywordLinkQueue> fetchMultipleRows(int limit);
 	void save(KeywordLinkQueue entity);
-	void saveAll(List<KeywordLinkQueue> keywordLinkQueues);
-	void saveIfNotExist(String link, int agentId, int parentId);
+	void saveAll(List<String> links, int agentId, int parentId);
 	void update(KeywordLinkQueue keywordLinkQueue);
 
 }

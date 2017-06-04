@@ -29,25 +29,31 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 		super.persist(entity);
 	}
 
-	public void saveAll(List<KeywordLinkQueue> keywordLinkQueues) {
-		// TODO Auto-generated method stub
-		Session session = getSession();
-		Transaction tx = session.beginTransaction();
+//	public void saveAll(List<KeywordLinkQueue> keywordLinkQueues, int agentId, int parentId) {
+//		// TODO Auto-generated method stub
+//		Session session = getSession();
+//		Transaction tx = session.beginTransaction();
+//
+//		for (int i = 0; i < keywordLinkQueues.size(); i++) {
+//			KeywordLinkQueue keywordLinkQueue = keywordLinkQueues.get(i);
+//			session.save(keywordLinkQueue);
+//			if (i % keywordLinkQueues.size() - 1 == 0) {
+//				session.flush();
+//				session.clear();
+//			}
+//		}
+//		tx.commit();
+//
+//	}
 
-		for (int i = 0; i < keywordLinkQueues.size(); i++) {
-			KeywordLinkQueue keywordLinkQueue = keywordLinkQueues.get(i);
-			session.save(keywordLinkQueue);
-			if (i % keywordLinkQueues.size() - 1 == 0) {
-				session.flush();
-				session.clear();
-			}
+	@Override
+	public void saveAll(List<String> links, int agentId, int parentId) {
+		for(String link : links){
+			saveIfNotExist(link, agentId, parentId);
 		}
-		tx.commit();
-
 	}
 
-	public void saveIfNotExist(String link, int agentId, int parentId) {
-
+	private void saveIfNotExist(String link, int agentId, int parentId) {
 		Session session = getSession();
 		Transaction tx = null;
 		try {
@@ -71,7 +77,7 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			System.out.println("rollback!!");
+			e.printStackTrace();
 		}
 
 	}
@@ -93,7 +99,6 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 		// TODO Auto-generated method stub
 		Session session = getSession();
 		Transaction tx = null;
-		
 		KeywordLinkQueue keywordLinkQueue = null;
 		try {
 			tx = session.beginTransaction();
@@ -105,7 +110,6 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			query.setMaxResults(1);
 
 			List<KeywordLinkQueue> result = query.list();
-			
 
 			if (!result.isEmpty()) {
 				keywordLinkQueue = result.get(0);
@@ -115,7 +119,6 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 				keywordLinkQueue.setBookingDate(new Timestamp(new Date().getTime()));
 				session.update(keywordLinkQueue);
 			}
-
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();

@@ -1,5 +1,6 @@
 package hibernate.dao;
 
+import com.google.inject.Singleton;
 import hibernate.model.KeywordMain;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -9,6 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import java.sql.Timestamp;
 import java.util.Date;
 
+@Singleton
 public class KeywordMainDaoImpl extends AbstractDao<Integer, KeywordMain> implements KeywordMainDao {
 
 	public KeywordMain findByName(String name) {
@@ -33,7 +35,7 @@ public class KeywordMainDaoImpl extends AbstractDao<Integer, KeywordMain> implem
 		super.update(keywordMain);
 	}
 
-	public int saveKeywordMain(String keywordName) {
+	public int saveKeywordMain(String keywordName, String link) {
 		// TODO Auto-generated method stub
 		int keywordMainId = 0;
 
@@ -48,12 +50,13 @@ public class KeywordMainDaoImpl extends AbstractDao<Integer, KeywordMain> implem
 			if (entityKeywordMain == null) {
 				entityKeywordMain = new KeywordMain();
 				entityKeywordMain.setName(keywordName);
+				entityKeywordMain.setLink(link);
 				entityKeywordMain.setDateCreated(new Timestamp(new Date().getTime()));
 				entityKeywordMain.setDateUpdated(new Timestamp(new Date().getTime()));
-				if (!entityKeywordMain.getName().isEmpty()) {
+//				if (!entityKeywordMain.getName().isEmpty()) {
 					// System.out.println(keywordMain.getName());
-					keywordMainId = (Integer) session.save(entityKeywordMain);
-				}
+				keywordMainId = (Integer) session.save(entityKeywordMain);
+
 			} else {
 				entityKeywordMain.setDateUpdated(new Timestamp(new Date().getTime()));
 				keywordMainId = entityKeywordMain.getId();
@@ -62,7 +65,7 @@ public class KeywordMainDaoImpl extends AbstractDao<Integer, KeywordMain> implem
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			System.out.println("Duplicate keywordMainId at = " + keywordMainId + " / rollback()");
+			e.printStackTrace();
 		}
 
 		return keywordMainId;

@@ -8,6 +8,8 @@ import org.jsoup.select.Elements;
 import services.PageParser;
 import services.StockFetcher;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +23,14 @@ public class NaverStockParser implements PageParser {
     private static final int STOCK_RELATED_KEYWORD = 2;
     private static final int NOT_A_STOCK_KEYWORD = 3;
 
-    private final StockFetcher stockFetcher;
-
-    public NaverStockParser(StockFetcher stockFetcher) {
-        this.stockFetcher = stockFetcher;
-    }
 
     @Override
     public KeywordInfo parse(Document document) {
         String keywordName = getKeywordName(document);
+        int keywordType = getKeywordType(document, keywordName);
+        if(keywordType==NOT_A_STOCK_KEYWORD) {
+            return null;
+        }
         KeywordInfo keywordInfo = new KeywordInfo(
                 keywordName,
                 getKeywordType(document,keywordName),
@@ -38,9 +39,14 @@ public class NaverStockParser implements PageParser {
     }
 
     private String getKeywordName(Document document) {
-        return document.select("input#nx_query").attr("value").trim()
-                .replaceAll("주가", "")
-                .replaceAll("주식", "");
+        try {
+            return URLDecoder.decode(document.select("input#nx_query").attr("value").trim()
+                    .replaceAll("주가", "")
+                    .replaceAll("주식", ""),"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     private int getKeywordType(Document document, String keywordName) {
@@ -56,6 +62,8 @@ public class NaverStockParser implements PageParser {
             return STOCK_KEYWORD;
         }
     }
+
+
 
     private List<String> getRelatedKeywordLinks(Document document){
         List<String> links = new ArrayList<String>();

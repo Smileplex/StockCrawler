@@ -1,5 +1,6 @@
 package hibernate.dao;
 
+import com.google.inject.Singleton;
 import hibernate.model.StockKeyword;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
@@ -8,6 +9,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
+@Singleton
 public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> implements StockKeywordDao {
 
 	public StockKeyword fetchFirstRow() {

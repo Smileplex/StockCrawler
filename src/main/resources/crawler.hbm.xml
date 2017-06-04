@@ -191,6 +191,9 @@
 		<property name="name" type="java.lang.String" unique="true" >
 			<column name="Name" />
 		</property>
+		<property name="link" type="java.lang.String" unique="true" >
+			<column name="Link" />
+		</property>
 		<property name="dateCreated" type="timestamp">
 			<column name="DateCreated"/>
 		</property>

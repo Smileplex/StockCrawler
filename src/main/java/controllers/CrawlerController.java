@@ -10,9 +10,7 @@ import java.util.List;
  * Created by DongwooSeo on 2017-05-27.
  */
 public class CrawlerController {
-
     private final Crawler crawler;
-    private List<KeywordLinkQueue> keywordLinkQueues;
 
     @Inject
     public CrawlerController(Crawler crawler) {
@@ -20,6 +18,6 @@ public class CrawlerController {
     }
 
     public void start(){
-        crawler.execute();
+        crawler.execute(5);
     }
 }

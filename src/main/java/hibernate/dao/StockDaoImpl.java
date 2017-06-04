@@ -1,5 +1,6 @@
 package hibernate.dao;
 
+import com.google.inject.Singleton;
 import hibernate.model.Stock;
 import models.StockInfo;
 import org.hibernate.Criteria;
@@ -10,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 import java.sql.Timestamp;
 import java.util.Date;
 
+@Singleton
 public class StockDaoImpl extends AbstractDao<Integer, Stock> implements StockDao{
 
 	@Override
@@ -19,7 +21,7 @@ public class StockDaoImpl extends AbstractDao<Integer, Stock> implements StockDa
 		try {
 			tx = session.beginTransaction();
 			Criteria crit = session.createCriteria(Stock.class);
-			crit.add(Restrictions.eq("keywordId", keywordId));
+			crit.add(Restrictions.eq("code", Integer.parseInt(stockInfo.getStockCode())));
 			Stock entityStock = (Stock) crit.setMaxResults(1).uniqueResult();
 			if (entityStock == null) {
 				Stock stock = new Stock();
@@ -54,13 +56,13 @@ public class StockDaoImpl extends AbstractDao<Integer, Stock> implements StockDa
 				entityStock.setChartWeekly(stockInfo.getChartWeeklyUrl());
 				entityStock.setChartMonthly(stockInfo.getChartMonthlyUrl());
 				entityStock.setDateUpdated(new Timestamp(new Date().getTime()));
-				session.save(entityStock);
+				session.update(entityStock);
 			}
 			// TODO Auto-generated method stub
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			System.out.println("rollback!!");
+			e.printStackTrace();
 		}
 
 	}
