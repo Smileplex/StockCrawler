@@ -10,12 +10,14 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by DongwooSeo on 2017-05-27.
  */
 @Singleton
 public class StockDetailCrawler implements Crawler {
+    private static final Logger logger = Logger.getLogger(StockDetailCrawler.class.getName());
     private static final int PARSING_FINISHED = 3;
     private final StockKeywordDao stockKeywordDao;
     private final StockDetailParser stockDetailParser;
@@ -40,8 +42,8 @@ public class StockDetailCrawler implements Crawler {
                 }
             });
             thread.start();
-            System.out.println(String.format("Crawler %d started", i + 1));
             threads.add(thread);
+            logger.info(String.format("Crawler %d started", i + 1));
         }
     }
 

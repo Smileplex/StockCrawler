@@ -9,6 +9,6 @@ import java.io.IOException;
 /**
  * Created by DongwooSeo on 2017-05-28.
  */
-public interface PageFetcher {
-    Document fetch(String link);
+public interface PageReader {
+    Document read(String link);
 }

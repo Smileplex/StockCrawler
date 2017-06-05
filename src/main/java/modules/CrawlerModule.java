@@ -20,7 +20,7 @@ public class CrawlerModule extends AbstractModule {
         bind(StockDetailKeywordDao.class).to(StockDetailKeywordDaoImpl.class);
         bind(KeywordLinkQueueDao.class).to(KeywordLinkQueueDaoImpl.class);
         bind(RelatedKeywordLinkDao.class).to(RelatedKeywordLinkDaoImpl.class);
-        bind(PageFetcher.class).to(PageFetcherImpl.class);
+        bind(PageReader.class).to(PageReaderImpl.class);
         bind(StockFetcher.class).to(StockFetcherImpl.class);
         bind(StockKeywordParser.class).to(StockKeywordParserImpl.class);
         bind(StockDetailParser.class).to(StockDetailParserImpl.class);

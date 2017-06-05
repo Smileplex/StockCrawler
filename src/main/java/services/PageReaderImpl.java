@@ -1,9 +1,11 @@
 package services;
 
+import app.AppSettings;
 import com.google.inject.Singleton;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.omg.CORBA.TIMEOUT;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -15,8 +17,8 @@ import java.util.Map;
  * Created by DongwooSeo on 2017-05-28.
  */
 @Singleton
-public class PageFetcherImpl implements PageFetcher {
-    public Document fetch(String link) {
+public class PageReaderImpl implements PageReader {
+    public Document read(String link) {
         Map<String,String> headers = new HashMap<>();
         headers.put("Host","m.search.naver.com");
         headers.put("Connection","keep-alive");
@@ -29,7 +31,7 @@ public class PageFetcherImpl implements PageFetcher {
         headers.put("Cookie","Cookie: NNB=R5OIDEDWDAZVS; page_uid=TgKz6wpVuqwssteWhAGssssss7o-068819; _naver_usersession_=SMs6MTU5bT0BxpBow5Hntw==; BMR=");
         Connection connection = null;
         try {
-            connection = Jsoup.connect(URLDecoder.decode(link,"UTF-8")).timeout(30000).headers(headers);
+            connection = Jsoup.connect(URLDecoder.decode(link,"UTF-8")).timeout(AppSettings.TIMEOUT).headers(headers);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

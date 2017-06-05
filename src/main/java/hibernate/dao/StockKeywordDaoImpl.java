@@ -8,10 +8,11 @@ import org.hibernate.criterion.Restrictions;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Singleton
 public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> implements StockKeywordDao {
-
+		private static final Logger logger = Logger.getLogger(StockKeywordDaoImpl.class.getName());
 	public StockKeyword fetchFirstRow() {
 		// TODO Auto-generated method stub
 		Session session = getSession();
@@ -75,7 +76,7 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			System.out.println("Duplicate keywordId at = " + stockKeywordId + " / rollback()");
+			logger.warning(String.format("Duplicated StockKeywordId at %d will rollback",stockKeywordId));
 		}
 
 		return stockKeywordId;

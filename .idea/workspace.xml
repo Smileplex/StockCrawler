@@ -6,14 +6,39 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" line="41" mnemonic="2" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java" line="30" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java" line="33" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" line="44" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2927d9b-8fe4-4450-a997-1f4f83e91949" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/app/AppSettings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/models/EmptyStockInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/parsers/EmptyKeywordInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/services/EmptyParsingResult.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/services/PageFetcher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/services/PageFetcherImpl.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/services/PageFetcher.java" afterPath="$PROJECT_DIR$/src/main/java/services/PageReader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/services/PageFetcherImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/PageReaderImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/crawlers/StockDetailCrawler.class" afterPath="$PROJECT_DIR$/build/classes/main/crawlers/StockDetailCrawler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/crawlers/StockKeywordCrawler.class" afterPath="$PROJECT_DIR$/build/classes/main/crawlers/StockKeywordCrawler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/hibernate/dao/StockKeywordDaoImpl.class" afterPath="$PROJECT_DIR$/build/classes/main/hibernate/dao/StockKeywordDaoImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/models/ParsingResult.class" afterPath="$PROJECT_DIR$/build/classes/main/models/ParsingResult.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/modules/CrawlerModule.class" afterPath="$PROJECT_DIR$/build/classes/main/modules/CrawlerModule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/parsers/NaverStockParser.class" afterPath="$PROJECT_DIR$/build/classes/main/parsers/NaverStockParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockDetailParserImpl.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockDetailParserImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockFetcherImpl.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockFetcherImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParserImpl.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParserImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/crawlers/StockDetailCrawler.java" afterPath="$PROJECT_DIR$/src/main/java/crawlers/StockDetailCrawler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" afterPath="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/ParsingResult.java" afterPath="$PROJECT_DIR$/src/main/java/models/ParsingResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java" afterPath="$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" afterPath="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/StockFetcherImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/StockFetcherImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -43,8 +68,8 @@
       <file leaf-file-name="StockDetailParserImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="30" column="56" lean-forward="true" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
+            <state relative-caret-position="398">
+              <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,24 +77,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockDetailKeywordDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailKeywordDao.java">
+      <file leaf-file-name="StockInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/StockInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+            <state relative-caret-position="357">
+              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockDetailKeywordDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailKeywordDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -77,28 +90,48 @@
       <file leaf-file-name="StockKeywordCrawler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
-              <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+            <state relative-caret-position="249">
+              <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockDetailDaoImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StockKeywordParserImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageReaderImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/services/PageReaderImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/AppMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockDetailDaoImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="913">
-              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockFetcherImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/StockFetcherImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+            <state relative-caret-position="-173">
+              <caret line="39" column="63" lean-forward="true" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -107,18 +140,18 @@
       <file leaf-file-name="CrawlerModule.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="425">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockDetailCrawler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockDetailCrawler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockDetailCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="40" column="15" lean-forward="true" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
+            <state relative-caret-position="347">
+              <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,63 +159,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <file leaf-file-name="NaverStockParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="725">
-              <caret line="25" column="52" lean-forward="true" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-              <folding>
-                <marker date="1496618039557" expanded="true" signature="104226:104243" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104226:104261" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104226:104274" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104226:104289" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104324:106999" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104337:106984" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104391:104770" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104410:104755" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104518:104735" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104558:104701" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104579:104679" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104820:105147" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104839:105132" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104934:105112" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104974:105078" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="104995:105056" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105198:105463" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105217:105448" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105250:105428" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105290:105394" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105311:105372" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105506:105812" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105525:105797" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105599:105777" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105639:105743" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105660:105721" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105863:106217" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105882:106202" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="105965:106182" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106005:106148" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106026:106126" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106252:106558" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106271:106543" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106345:106523" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106385:106489" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106406:106467" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106610:106970" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106629:106955" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106757:106935" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106797:106901" ph="..." />
-                <marker date="1496618039557" expanded="true" signature="106818:106879" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockKeywordParserImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1073">
-              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="29" />
+            <state relative-caret-position="-21">
+              <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -201,15 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ItemCode</find>
-      <find>D</find>
-      <find>Du</find>
-      <find>Dup</find>
-      <find>Dupli</find>
-      <find>Duplic</find>
-      <find>Duplicate</find>
-      <find>Duplicate key</find>
-      <find>Duplicate keywor</find>
       <find>Duplicate keyword</find>
       <find>Duplicate keywordM</find>
       <find>stock_tlt</find>
@@ -231,6 +203,15 @@
       <find>rollback!!</find>
       <find>stockFetcher</find>
       <find>stock</find>
+      <find>Can't</find>
+      <find>Can't c</find>
+      <find>Can't con</find>
+      <find>Can't conv</find>
+      <find>C</find>
+      <find>Ca</find>
+      <find>Can</find>
+      <find>Can'</find>
+      <find>Can't</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -525,18 +506,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/services/NaverStockParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/parsers/PageParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/parsers/StockKeywordParserImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/StockParserFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/ParserResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/StockKeywordParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/models/ParsingResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/StockInfo.java" />
         <option value="$PROJECT_DIR$/src/test/java/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/helper/Helper.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/services/PageFetcherImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordLinkQueueDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/model/KeywordMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/StockKeywordGeneratorImpl.java" />
@@ -546,8 +520,6 @@
         <option value="$PROJECT_DIR$/src/main/java/crawlers/Crawler.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/CrawlerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/KeywordInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/model/Stock.java" />
         <option value="$PROJECT_DIR$/out/production/stockcrawler/crawler.hbm.xml" />
@@ -558,24 +530,33 @@
         <option value="$PROJECT_DIR$/src/main/java/hibernate/model/StockDetailKeyword.java" />
         <option value="$PROJECT_DIR$/src/main/java/crawlers/BasicStockCrawler.java" />
         <option value="$PROJECT_DIR$/src/main/java/crawlers/UpdateStockCrawler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/StockDetailParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/StockFetcher.java" />
-        <option value="$PROJECT_DIR$/src/main/java/services/StockFetcherImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/RelatedKeywordLinkDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/RelatedKeywordLinkDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordLinkQueueDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordMainDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailKeywordDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailKeywordDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java" />
         <option value="$PROJECT_DIR$/src/main/resources/crawler.hbm.xml" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/crawlers/StockDetailCrawler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/PageFetcherImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/app/AppSettings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/PageReaderImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/StockFetcherImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/EmptyStockInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parsers/EmptyKeywordType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/EmptyParsingResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/ParsingResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java" />
       </list>
     </option>
   </component>
@@ -586,10 +567,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="2904" />
-    <option name="height" value="1754" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1662" />
+    <option name="height" value="1005" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -633,8 +614,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -671,12 +650,170 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stockcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stockcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stockcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stockcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stockcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stockcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StockCrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -689,12 +826,12 @@
     <property name="SearchEverywhereHistoryKey" value="KeywordMain&#9;FILE&#9;file://C:/Users/DongwooSeo/Documents/StockCrawler/src/main/java/hibernate/dao/KeywordMainDaoImpl.java&#10;NaverStock&#9;FILE&#9;file://C:/Users/DongwooSeo/Documents/StockCrawler/src/main/java/parsers/NaverStockParser.java&#10;&quot;Duplicate keywordMain&#9;null&#9;null&#10;Test&#9;FILE&#9;file://C:/Users/DongwooSeo/Documents/StockCrawler/src/test/java/Test.java&#10;StockF&#9;FILE&#9;file://C:/Users/DongwooSeo/Documents/StockCrawler/src/main/java/services/StockFetcherImpl.java" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/models" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="services" />
-      <recent name="hibernate.dao" />
-      <recent name="" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DongwooSeo\Documents\StockCrawler\src\main\java\META-INF" />
+      <recent name="C:\Users\DongwooSeo\Documents\StockCrawler\src\main\resources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\DongwooSeo\Documents\StockCrawler\src\main\java\hibernate\dao" />
@@ -704,9 +841,11 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="hibernate.util" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\DongwooSeo\Documents\StockCrawler\src\main\java\META-INF" />
-      <recent name="C:\Users\DongwooSeo\Documents\StockCrawler\src\main\resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="services" />
+      <recent name="parsers" />
+      <recent name="hibernate.dao" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1225,7 +1364,8 @@
       <workItem from="1496578613355" duration="3278000" />
       <workItem from="1496594366078" duration="14737000" />
       <workItem from="1496617672541" duration="4000" />
-      <workItem from="1496617841815" duration="199000" />
+      <workItem from="1496617841815" duration="273000" />
+      <workItem from="1496692376967" duration="5379000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring and StockInfo(POJO) added in.">
       <created>1496268332508</created>
@@ -1260,42 +1400,42 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146788000" />
+    <option name="totallyTimeSpent" value="152241000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-12" y="-12" width="2904" height="1754" extended-state="6" />
+    <frame x="-8" y="-8" width="1662" height="1005" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949457" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3932961" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32757518" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949457" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949457" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32757518" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3273743" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21180555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21142162" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3934741" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885477" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1325,56 +1465,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="29" column="91" lean-forward="false" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/PageFetcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/PageFetcherImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordLinkQueueDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="13" column="15" lean-forward="false" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordMainDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/model/KeywordMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/stockcrawler/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/Crawler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -1397,31 +1487,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/AppMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/CrawlerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1653">
-          <caret line="68" column="26" lean-forward="false" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/StockInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1488,13 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/ParsingResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -1513,13 +1575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
           <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockDetailsFactoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1595,13 +1650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="23" column="56" lean-forward="false" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20068">
@@ -1610,131 +1658,243 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailKeywordDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
+        <state relative-caret-position="221">
           <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#499#500#0" expanded="false" />
+            <element signature="e#523#524#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailKeywordDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
+        <state relative-caret-position="136">
           <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="25" column="52" lean-forward="true" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+        <state relative-caret-position="459">
+          <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
           <folding>
-            <marker date="1496618039557" expanded="true" signature="104226:104243" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104226:104261" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104226:104274" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104226:104289" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104324:106999" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104337:106984" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104391:104770" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104410:104755" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104518:104735" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104558:104701" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104579:104679" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104820:105147" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104839:105132" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104934:105112" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104974:105078" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="104995:105056" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105198:105463" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105217:105448" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105250:105428" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105290:105394" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105311:105372" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105506:105812" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105525:105797" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105599:105777" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105639:105743" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105660:105721" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105863:106217" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105882:106202" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="105965:106182" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106005:106148" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106026:106126" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106252:106558" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106271:106543" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106345:106523" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106385:106489" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106406:106467" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106610:106970" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106629:106955" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106757:106935" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106797:106901" ph="..." />
-            <marker date="1496618039557" expanded="true" signature="106818:106879" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113489:113506" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113489:113524" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113489:113537" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113489:113552" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113587:116262" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113600:116247" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113654:114033" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113673:114018" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113781:113998" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113821:113964" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="113842:113942" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114083:114410" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114102:114395" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114197:114375" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114237:114341" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114258:114319" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114461:114726" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114480:114711" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114513:114691" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114553:114657" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114574:114635" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114769:115075" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114788:115060" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114862:115040" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114902:115006" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="114923:114984" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115126:115480" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115145:115465" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115228:115445" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115268:115411" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115289:115389" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115515:115821" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115534:115806" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115608:115786" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115648:115752" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115669:115730" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115873:116233" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="115892:116218" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="116020:116198" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="116060:116164" ph="..." />
+            <marker date="1496701350129" expanded="true" signature="116081:116142" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/AppSettings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="913">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/model/StockKeyword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding>
+            <element signature="e#1128#1129#0" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1385#1386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="79" column="9" lean-forward="true" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/PageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/EmptyStockInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/StockFetcherImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        <state relative-caret-position="421">
+          <caret line="47" column="33" lean-forward="true" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/parsers/EmptyKeywordInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="30" column="56" lean-forward="true" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/ParsingResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/EmptyParsingResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockDetailsFactoryImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/AppMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+        <state relative-caret-position="249">
+          <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/PageReaderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="41" column="39" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockDetailCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="40" column="15" lean-forward="true" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="15" />
+        <state relative-caret-position="347">
+          <caret line="37" column="43" lean-forward="false" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/StockInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockDetailParserImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockDetailDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-173">
+          <caret line="39" column="63" lean-forward="true" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>

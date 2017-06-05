@@ -1,5 +1,7 @@
 package models;
 
+import services.PageReader;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,7 @@ public class ParsingResult {
     private List<String> links;
     private int keywordId;
 
+    public ParsingResult() {}
     public ParsingResult(List<String> links, int keywordId) {
         this.links = links;
         this.keywordId = keywordId;

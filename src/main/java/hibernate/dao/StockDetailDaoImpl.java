@@ -28,7 +28,8 @@ public class StockDetailDaoImpl extends AbstractDao<Integer, StockDetail> implem
 			try{
 				stockCode = Integer.parseInt(stockInfo.getStockCode());
 			}catch(NumberFormatException e){
-				System.out.println("Can't convert to integer!");
+				System.out.println("Can't convert StockCode from string to integer.");
+				e.printStackTrace();
 			}
 			crit.add(Restrictions.eq("code", stockCode));
 			StockDetail entityStockDetail = (StockDetail) crit.setMaxResults(1).uniqueResult();

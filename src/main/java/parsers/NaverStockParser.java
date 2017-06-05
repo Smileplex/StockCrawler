@@ -6,7 +6,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import services.PageParser;
-import services.StockFetcher;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -28,7 +27,7 @@ public class NaverStockParser implements PageParser {
         String keywordName = getKeywordName(document);
         int keywordType = getKeywordType(document, keywordName);
         if(keywordType==NOT_A_STOCK_KEYWORD) {
-            return null;
+            return new EmptyKeywordInfo();
         }
         KeywordInfo keywordInfo = new KeywordInfo(
                 keywordName,
