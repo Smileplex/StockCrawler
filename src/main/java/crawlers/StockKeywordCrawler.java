@@ -21,6 +21,8 @@ public class StockKeywordCrawler implements Crawler {
     private static final int PARSING_FINISHED = 3;
     private final KeywordLinkQueueDao keywordLinkQueueDao;
     private final StockKeywordParser stockKeywordParser;
+    private KeywordLinkQueue keywordLinkQueue;
+    private ParsingResult parsingResult;
 
     @Inject
     public StockKeywordCrawler(KeywordLinkQueueDao keywordLinkQueueDao,
@@ -35,17 +37,11 @@ public class StockKeywordCrawler implements Crawler {
         for (int i = 0; i < numberOfCrawler; i++) {
             Thread thread = new Thread(() -> {
                 while (true) {
-                    KeywordLinkQueue keywordLinkQueue = getCrawlableLink();
-                    ParsingResult parsingResult =
-                            stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
-                    if (parsingResult instanceof EmptyParsingResult) {
-                        continue;
-                    }
-
-                    keywordLinkQueue.setStatus(PARSING_FINISHED);
-                    keywordLinkQueueDao.update(keywordLinkQueue);
-                    keywordLinkQueueDao.saveAll(parsingResult.getLinks(), parsingResult.getKeywordId(),
-                            keywordLinkQueue.getAgentId());
+                    keywordLinkQueue = getCrawlableLink();
+                    parsingResult = getParsingResult();
+                    if (parsingResult instanceof EmptyParsingResult) continue;
+                    setCurrentKeywordLinkQueueStatus(PARSING_FINISHED);
+                    saveNewKeywordLinkQueues();
                 }
             });
             thread.start();
@@ -57,4 +53,20 @@ public class StockKeywordCrawler implements Crawler {
     private KeywordLinkQueue getCrawlableLink() {
         return keywordLinkQueueDao.fetchFirstRow();
     }
+
+    private ParsingResult getParsingResult() {
+        return stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
+    }
+
+    private void setCurrentKeywordLinkQueueStatus(int status) {
+        keywordLinkQueue.setStatus(status);
+        keywordLinkQueueDao.update(keywordLinkQueue);
+    }
+
+    private void saveNewKeywordLinkQueues() {
+        keywordLinkQueueDao.saveAll(parsingResult.getLinks(), parsingResult.getKeywordId(),
+                keywordLinkQueue.getAgentId());
+    }
+
+
 }

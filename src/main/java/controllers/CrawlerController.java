@@ -1,5 +1,6 @@
 package controllers;
 
+import app.AppSettings;
 import hibernate.model.KeywordLinkQueue;
 import crawlers.Crawler;
 
@@ -18,6 +19,6 @@ public class CrawlerController {
     }
 
     public void start(){
-        crawler.execute(5);
+        crawler.execute(AppSettings.CRAWLER_THREADS);
     }
 }
