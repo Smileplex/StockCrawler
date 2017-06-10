@@ -23,22 +23,18 @@ public class NaverStockParser implements PageParser {
     private static final int NOT_A_STOCK_KEYWORD = 3;
 
     @Override
-    public KeywordInfo parse(Document document) {
-        String keywordName = getKeywordName(document);
-        int keywordType = getKeywordType(document, keywordName);
-        if(keywordType==NOT_A_STOCK_KEYWORD) {
+    public KeywordInfo processParsing(Document pageHtml) {
+        String keywordName = getKeywordName(pageHtml);
+        int keywordType = getKeywordType(pageHtml, keywordName);
+        if(keywordType == NOT_A_STOCK_KEYWORD) {
             return new EmptyKeywordInfo();
         }
-        KeywordInfo keywordInfo = new KeywordInfo(
-                keywordName,
-                keywordType,
-                getRelatedKeywordLinks(document));
-        return keywordInfo;
+        return new KeywordInfo(keywordName, keywordType, getRelatedKeywordLinks(pageHtml));
     }
 
-    private String getKeywordName(Document document) {
+    private String getKeywordName(Document pageHtml) {
         try {
-            return URLDecoder.decode(document.select("input#nx_query").attr("value").trim()
+            return URLDecoder.decode(pageHtml.select("input#nx_query").attr("value").trim()
                     .replaceAll("주가", "")
                     .replaceAll("주식", ""),"UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -47,12 +43,10 @@ public class NaverStockParser implements PageParser {
         return "";
     }
 
-    private int getKeywordType(Document document, String keywordName) {
-        String pageText = document.toString();
-        boolean isStockKeyword = pageText.contains("<div class=\"stock_tlt\">");
-        if (!isStockKeyword) {
-            boolean isStockRelatedKeyword = Helper.containValue("관련주,연관주,테마주,수혜주,대장주", keywordName);
-            if (isStockRelatedKeyword)
+    private int getKeywordType(Document pageHtml, String keywordName) {
+        String pageText = pageHtml.toString();
+        if (!isStockKeyword(pageText)) {
+            if (isStockRelatedKeyword(keywordName))
                 return STOCK_RELATED_KEYWORD;
             else
                 return NOT_A_STOCK_KEYWORD;
@@ -61,15 +55,28 @@ public class NaverStockParser implements PageParser {
         }
     }
 
-    private List<String> getRelatedKeywordLinks(Document document){
-        List<String> collectedLinks = new ArrayList<String>();
-        Elements anchorTags = document.select("div._rk_hcheck a");
-        for(Element anchorTag : anchorTags){
-            String link = SEARCH_QUERY + anchorTag.attr("href");
-            if(!collectedLinks.contains(link))
-                collectedLinks.add(link);
+    private boolean isStockKeyword(String pageText) {
+        return pageText.contains("<div class=\"stock_tlt\">");
+    }
+
+    private boolean isStockRelatedKeyword(String keywordName) {
+        return Helper.containValue("관련주,연관주,테마주,수혜주,대장주", keywordName);
+    }
+
+    private List<String> getRelatedKeywordLinks(Document pageHtml){
+        List<String> collectedLinks = new ArrayList<>();
+        for(Element anchorTag : getAnchorTags(pageHtml)){
+            String link = combineLinkWithSearchQuery(anchorTag);
+            if(!collectedLinks.contains(link)) collectedLinks.add(link);
         }
         return collectedLinks;
     }
 
+    private Elements getAnchorTags(Document pageHtml) {
+        return pageHtml.select("div._rk_hcheck a");
+    }
+
+    private String combineLinkWithSearchQuery(Element anchorTag) {
+        return SEARCH_QUERY + anchorTag.attr("href");
+    }
 }

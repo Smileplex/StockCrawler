@@ -2,6 +2,7 @@ package hibernate.dao;
 
 import com.google.inject.Singleton;
 import hibernate.model.KeywordLinkQueue;
+import models.ParsingResult;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
@@ -29,49 +30,33 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 		super.persist(entity);
 	}
 
-//	public void saveAll(List<KeywordLinkQueue> keywordLinkQueues, int agentId, int parentId) {
-//		// TODO Auto-generated method stub
-//		Session session = getSession();
-//		Transaction tx = session.beginTransaction();
-//
-//		for (int i = 0; i < keywordLinkQueues.size(); i++) {
-//			KeywordLinkQueue keywordLinkQueue = keywordLinkQueues.get(i);
-//			session.save(keywordLinkQueue);
-//			if (i % keywordLinkQueues.size() - 1 == 0) {
-//				session.flush();
-//				session.clear();
-//			}
-//		}
-//		tx.commit();
-//
-//	}
 
 	@Override
-	public void saveAll(List<String> links, int agentId, int parentId) {
-		for(String link : links){
-			saveIfNotExist(link, agentId, parentId);
+	public void saveAll(ParsingResult parsingResult, KeywordLinkQueue keywordLinkQueue) {
+		for(String link : parsingResult.getLinks()){
+			saveIfNotExist(link, keywordLinkQueue);
 		}
 	}
 
-	private void saveIfNotExist(String link, int agentId, int parentId) {
+	private void saveIfNotExist(String link, KeywordLinkQueue currentKeywordLinkQueue) {
 		Session session = getSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
 			Criteria crit = session.createCriteria(KeywordLinkQueue.class);
 			crit.add(Restrictions.eq("link", link));
-			crit.add(Restrictions.eq("parentId", parentId));
+			crit.add(Restrictions.eq("parentId", currentKeywordLinkQueue.getParentId()));
 
 			KeywordLinkQueue entityKeywordLinkQueue = (KeywordLinkQueue) crit.setMaxResults(1).uniqueResult();
 
 			if (entityKeywordLinkQueue == null) {
-				KeywordLinkQueue keywordLinkQueue = new KeywordLinkQueue();
-				keywordLinkQueue.setLink(link);
-				keywordLinkQueue.setStatus(1);
-				keywordLinkQueue.setDateCreated(new Timestamp(new Date().getTime()));
-				keywordLinkQueue.setAgentId(agentId);
-				keywordLinkQueue.setParentId(parentId);
-				session.save(keywordLinkQueue);
+				KeywordLinkQueue newKeywordLinkQueue = new KeywordLinkQueue();
+				newKeywordLinkQueue.setLink(link);
+				newKeywordLinkQueue.setStatus(1);
+				newKeywordLinkQueue.setDateCreated(new Timestamp(new Date().getTime()));
+				newKeywordLinkQueue.setAgentId(currentKeywordLinkQueue.getAgentId());
+				newKeywordLinkQueue.setParentId(currentKeywordLinkQueue.getParentId());
+				session.save(newKeywordLinkQueue);
 			}
 			// TODO Auto-generated method stub
 			tx.commit();
@@ -81,7 +66,6 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 		}
 
 	}
-
 
 	@Override
 	public void update(KeywordLinkQueue entity) {

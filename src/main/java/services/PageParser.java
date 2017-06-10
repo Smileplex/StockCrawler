@@ -7,6 +7,6 @@ import org.jsoup.nodes.Document;
  * Created by DongwooSeo on 2017-05-29.
  */
 public interface PageParser {
-    KeywordInfo parse(Document document);
+    KeywordInfo processParsing(Document document);
 
 }

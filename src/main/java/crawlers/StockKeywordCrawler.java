@@ -21,8 +21,6 @@ public class StockKeywordCrawler implements Crawler {
     private static final int PARSING_FINISHED = 3;
     private final KeywordLinkQueueDao keywordLinkQueueDao;
     private final StockKeywordParser stockKeywordParser;
-    private KeywordLinkQueue keywordLinkQueue;
-    private ParsingResult parsingResult;
 
     @Inject
     public StockKeywordCrawler(KeywordLinkQueueDao keywordLinkQueueDao,
@@ -37,36 +35,39 @@ public class StockKeywordCrawler implements Crawler {
         for (int i = 0; i < numberOfCrawler; i++) {
             Thread thread = new Thread(() -> {
                 while (true) {
-                    keywordLinkQueue = getCrawlableLink();
-                    parsingResult = getParsingResult();
-                    if (parsingResult instanceof EmptyParsingResult) continue;
-                    setCurrentKeywordLinkQueueStatus(PARSING_FINISHED);
-                    saveNewKeywordLinkQueues();
+                    processParsing();
                 }
             });
             thread.start();
             threads.add(thread);
-            logger.info(String.format("Crawler %d started", i+1));
+            logger.info(String.format("Crawler %d started", i + 1));
         }
+    }
+
+    private void processParsing() {
+        KeywordLinkQueue keywordLinkQueue = getCrawlableLink();
+        ParsingResult parsingResult = getParsingResult(keywordLinkQueue);
+        if (parsingResult instanceof EmptyParsingResult)
+            return;
+        setCurrentLinkQueueStatusFinished(keywordLinkQueue);
+        saveNewKeywordLinkQueues(parsingResult, keywordLinkQueue);
     }
 
     private KeywordLinkQueue getCrawlableLink() {
         return keywordLinkQueueDao.fetchFirstRow();
     }
 
-    private ParsingResult getParsingResult() {
-        return stockKeywordParser.parse(keywordLinkQueue.getLink(), keywordLinkQueue.getAgentId(), keywordLinkQueue.getParentId());
+    private ParsingResult getParsingResult(KeywordLinkQueue keywordLinkQueue) {
+        return stockKeywordParser.processParsing(keywordLinkQueue);
     }
 
-    private void setCurrentKeywordLinkQueueStatus(int status) {
-        keywordLinkQueue.setStatus(status);
+    private void setCurrentLinkQueueStatusFinished(KeywordLinkQueue keywordLinkQueue) {
+        keywordLinkQueue.setStatus(PARSING_FINISHED);
         keywordLinkQueueDao.update(keywordLinkQueue);
     }
 
-    private void saveNewKeywordLinkQueues() {
-        keywordLinkQueueDao.saveAll(parsingResult.getLinks(), parsingResult.getKeywordId(),
-                keywordLinkQueue.getAgentId());
+    private void saveNewKeywordLinkQueues(ParsingResult parsingResult, KeywordLinkQueue keywordLinkQueue) {
+        keywordLinkQueueDao.saveAll(parsingResult, keywordLinkQueue);
     }
-
 
 }

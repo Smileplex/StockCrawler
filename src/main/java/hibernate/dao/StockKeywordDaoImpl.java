@@ -1,7 +1,9 @@
 package hibernate.dao;
 
 import com.google.inject.Singleton;
+import hibernate.model.KeywordLinkQueue;
 import hibernate.model.StockKeyword;
+import models.KeywordInfo;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
@@ -42,7 +44,7 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 		}
 		return stockKeyword;
 	}
-	public int save(String keywordName, String link, int keywordMainId, int agentId, int typeId) {
+	public int save(KeywordInfo keywordInfo, KeywordLinkQueue keywordLinkQueue, int keywordMainId) {
 		int stockKeywordId = 0;
 
 		Session session = getSession();
@@ -52,19 +54,19 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 
 			Criteria crit = session.createCriteria(StockKeyword.class);
 			crit.add(Restrictions.eq("keywordMainId", keywordMainId));
-			crit.add(Restrictions.eq("agentId", agentId));
+			crit.add(Restrictions.eq("agentId", keywordLinkQueue.getAgentId()));
 
 			StockKeyword entityKeyword = (StockKeyword) crit.setMaxResults(1).uniqueResult();
 
 			if (entityKeyword == null) {
 				entityKeyword = new StockKeyword();
 				entityKeyword.setKeywordMainId(keywordMainId);
-				entityKeyword.setAgentId(agentId);
-				entityKeyword.setName(keywordName);
-				entityKeyword.setLink(link);
+				entityKeyword.setAgentId(keywordLinkQueue.getAgentId());
+				entityKeyword.setName(keywordInfo.getKeywordName());
+				entityKeyword.setLink(keywordLinkQueue.getLink());
 				entityKeyword.setDateCreated(new Timestamp(new Date().getTime()));
 				entityKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
-				entityKeyword.setTypeId(typeId);
+				entityKeyword.setTypeId(keywordInfo.getKeywordType());
 				entityKeyword.setStatus(1);
 				if (!entityKeyword.getName().isEmpty()) {
 					stockKeywordId = (Integer) session.save(entityKeyword);

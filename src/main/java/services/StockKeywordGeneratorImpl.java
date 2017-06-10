@@ -4,6 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import hibernate.dao.KeywordMainDao;
 import hibernate.dao.StockKeywordDao;
+import hibernate.model.KeywordLinkQueue;
+import models.KeywordInfo;
 
 /**
  * Created by DongwooSeo on 2017-05-28.
@@ -21,12 +23,13 @@ public class StockKeywordGeneratorImpl implements StockKeywordGenerator {
     }
 
     @Override
-    public int generate(String keywordName, String link, int agentId, int typeId) {
-        int keywordMainId = keywordMainDao.saveKeywordMain(keywordName, link);
+    public int generate(KeywordInfo keywordInfo, KeywordLinkQueue keywordLinkQueue) {
+        int keywordMainId = keywordMainDao.saveKeywordMain(keywordInfo.getKeywordName(),
+                keywordLinkQueue.getLink());
         if (keywordMainId == 0) {
             return 0;
         }
-        int stockKeywordId = stockKeywordDao.save(keywordName, link, keywordMainId, agentId, typeId);
+        int stockKeywordId = stockKeywordDao.save(keywordInfo, keywordLinkQueue, keywordMainId);
         return stockKeywordId;
     }
 }

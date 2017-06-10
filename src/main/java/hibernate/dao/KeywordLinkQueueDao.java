@@ -2,6 +2,7 @@ package hibernate.dao;
 
 
 import hibernate.model.KeywordLinkQueue;
+import models.ParsingResult;
 
 import java.util.List;
 
@@ -10,7 +11,6 @@ public interface KeywordLinkQueueDao {
 	KeywordLinkQueue fetchFirstRow();
 	List<KeywordLinkQueue> fetchMultipleRows(int limit);
 	void save(KeywordLinkQueue entity);
-	void saveAll(List<String> links, int agentId, int parentId);
 	void update(KeywordLinkQueue keywordLinkQueue);
-
+	void saveAll(ParsingResult parsingResult, KeywordLinkQueue keywordLinkQueue);
 }
