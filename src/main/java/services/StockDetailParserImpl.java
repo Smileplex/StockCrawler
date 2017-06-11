@@ -47,13 +47,10 @@ public class StockDetailParserImpl implements StockDetailParser {
     }
 
     private StockInfo getStockInfo(StockKeyword stockKeyword) {
-        Document pageHtml = readPageHtml(stockKeyword.getLink());
+        Document pageHtml = pageReader.read(stockKeyword.getLink());
         return stockFetcher.fetch(pageHtml, stockKeyword.getId());
     }
 
-    private Document readPageHtml(String link) {
-        return pageReader.read(link);
-    }
     private int generateStockDetail() {
         return stockDetailDao.save(stockInfo);
     }
