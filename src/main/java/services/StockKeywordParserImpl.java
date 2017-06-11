@@ -41,7 +41,7 @@ public class StockKeywordParserImpl implements StockKeywordParser {
         if (keywordInfo instanceof EmptyKeywordInfo)
             return new EmptyParsingResult();
 
-        int stockKeywordId = getGeneratedKeywordId();
+        int stockKeywordId = generateKeywordId();
         saveRelatedKeywordLink(stockKeywordId);
 
         logStatus(keywordInfo, stockKeywordId);
@@ -54,7 +54,7 @@ public class StockKeywordParserImpl implements StockKeywordParser {
         return pageParser.parse(pageHtml);
     }
 
-    private int getGeneratedKeywordId() {
+    private int generateKeywordId() {
         return stockKeywordGenerator.generate(keywordInfo, keywordLinkQueue);
     }
 

@@ -48,7 +48,7 @@ public class StockKeywordCrawler implements Crawler {
 
     private void processParsing() {
         this.keywordLinkQueue = getCrawlableLink();
-        this.parsingResult = getParsingResult();
+        this.parsingResult = parseStockKeyword();
         if (parsingResult instanceof EmptyParsingResult)
             return;
         setCurrentLinkQueueStatusFinished();
@@ -59,7 +59,7 @@ public class StockKeywordCrawler implements Crawler {
         return keywordLinkQueueDao.fetchFirstRow();
     }
 
-    private ParsingResult getParsingResult() {
+    private ParsingResult parseStockKeyword() {
         return stockKeywordParser.parse(keywordLinkQueue);
     }
 
