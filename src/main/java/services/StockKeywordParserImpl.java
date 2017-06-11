@@ -21,6 +21,8 @@ public class StockKeywordParserImpl implements StockKeywordParser {
     private final StockKeywordGenerator stockKeywordGenerator;
     private final StockDetailsFactory stockDetailsFactory;
     private final RelatedKeywordLinkDao relatedKeywordLinkDao;
+    private KeywordInfo keywordInfo;
+    private KeywordLinkQueue keywordLinkQueue;
 
     @Inject
     public StockKeywordParserImpl(PageReader pageReader, StockKeywordGenerator stockKeywordGenerator,
@@ -34,28 +36,29 @@ public class StockKeywordParserImpl implements StockKeywordParser {
 
     @Override
     public ParsingResult processParsing(KeywordLinkQueue keywordLinkQueue) {
-        KeywordInfo keywordInfo = parseKeywordInfo(keywordLinkQueue);
+        this.keywordLinkQueue = keywordLinkQueue;
+        this.keywordInfo = parseKeywordInfo();
         if (keywordInfo instanceof EmptyKeywordInfo)
             return new EmptyParsingResult();
 
-        int stockKeywordId = getGeneratedKeywordId(keywordInfo, keywordLinkQueue);
-        saveRelatedKeywordLink(keywordLinkQueue, stockKeywordId);
-        logStatus(keywordInfo, stockKeywordId);
+        int stockKeywordId = getGeneratedKeywordId();
+        saveRelatedKeywordLink(stockKeywordId);
 
+        logStatus(keywordInfo, stockKeywordId);
         return new ParsingResult(keywordInfo.getRelatedKeywordLinks(), stockKeywordId);
     }
 
-    private KeywordInfo parseKeywordInfo(KeywordLinkQueue keywordLinkQueue) {
+    private KeywordInfo parseKeywordInfo() {
         Document pageHtml = pageReader.read(keywordLinkQueue.getLink());
         PageParser pageParser = stockDetailsFactory.create(keywordLinkQueue.getAgentId());
         return pageParser.processParsing(pageHtml);
     }
 
-    private int getGeneratedKeywordId(KeywordInfo keywordInfo, KeywordLinkQueue keywordLinkQueue) {
+    private int getGeneratedKeywordId() {
         return stockKeywordGenerator.generate(keywordInfo, keywordLinkQueue);
     }
 
-    private void saveRelatedKeywordLink(KeywordLinkQueue keywordLinkQueue, int stockKeywordId) {
+    private void saveRelatedKeywordLink(int stockKeywordId) {
         relatedKeywordLinkDao.save(keywordLinkQueue.getParentId(), stockKeywordId, 0);
     }
 
