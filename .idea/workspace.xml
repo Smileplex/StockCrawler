@@ -124,13 +124,13 @@
       <file leaf-file-name="NaverStockParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="120">
+              <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
               <folding>
-                <element signature="e#1761#1762#0" expanded="true" />
-                <element signature="e#1841#1842#0" expanded="true" />
-                <element signature="e#1888#1889#0" expanded="true" />
-                <element signature="e#1966#1967#0" expanded="true" />
+                <element signature="e#1771#1772#0" expanded="true" />
+                <element signature="e#1851#1852#0" expanded="true" />
+                <element signature="e#1898#1899#0" expanded="true" />
+                <element signature="e#1976#1977#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1197,7 +1197,7 @@
       <workItem from="1497123477655" duration="3073000" />
       <workItem from="1497129004019" duration="8268000" />
       <workItem from="1497138929145" duration="40000" />
-      <workItem from="1497208557274" duration="1665000" />
+      <workItem from="1497208557274" duration="1918000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring and StockInfo(POJO) added in.">
       <created>1496268332508</created>
@@ -1269,7 +1269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497210203465</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="NaverStockParser refactoring.">
+      <created>1497210240346</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1497210240346</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1281,7 +1288,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190673000" />
+    <option name="totallyTimeSpent" value="190926000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="0" width="2894" height="1754" extended-state="0" />
@@ -1344,7 +1351,8 @@
     <MESSAGE value="NaverStockParser using instance variables." />
     <MESSAGE value="StockKeywordParser refactoring." />
     <MESSAGE value="StockKeywordCrawler refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="StockKeywordCrawler refactoring" />
+    <MESSAGE value="NaverStockParser refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="NaverStockParser refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1732,13 +1740,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        <state relative-caret-position="120">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
-            <element signature="e#1761#1762#0" expanded="true" />
-            <element signature="e#1841#1842#0" expanded="true" />
-            <element signature="e#1888#1889#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
+            <element signature="e#1771#1772#0" expanded="true" />
+            <element signature="e#1851#1852#0" expanded="true" />
+            <element signature="e#1898#1899#0" expanded="true" />
+            <element signature="e#1976#1977#0" expanded="true" />
           </folding>
         </state>
       </provider>
