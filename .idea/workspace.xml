@@ -16,7 +16,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParser.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParserImpl.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParserImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" afterPath="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -119,8 +118,8 @@
       <file leaf-file-name="NaverStockParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state relative-caret-position="696">
+              <caret line="34" column="66" lean-forward="false" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
               <folding>
                 <element signature="e#1775#1776#0" expanded="true" />
                 <element signature="e#1855#1856#0" expanded="true" />
@@ -1192,7 +1191,7 @@
       <workItem from="1497123477655" duration="3073000" />
       <workItem from="1497129004019" duration="8268000" />
       <workItem from="1497138929145" duration="40000" />
-      <workItem from="1497208557274" duration="975000" />
+      <workItem from="1497208557274" duration="1000000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring and StockInfo(POJO) added in.">
       <created>1496268332508</created>
@@ -1229,7 +1228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496786939066</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="NaverStockParser using instance variables.">
+      <created>1497209554336</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1497209554336</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1241,7 +1247,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189983000" />
+    <option name="totallyTimeSpent" value="190008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="0" width="2894" height="1754" extended-state="0" />
@@ -1301,7 +1307,8 @@
     <MESSAGE value="Little refactoring done !" />
     <MESSAGE value="Logging added, and refactoring" />
     <MESSAGE value="StockKeywordCrawler refactoring in terms of the methods from clean code." />
-    <option name="LAST_COMMIT_MESSAGE" value="StockKeywordCrawler refactoring in terms of the methods from clean code." />
+    <MESSAGE value="NaverStockParser using instance variables." />
+    <option name="LAST_COMMIT_MESSAGE" value="NaverStockParser using instance variables." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1684,8 +1691,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        <state relative-caret-position="696">
+          <caret line="34" column="66" lean-forward="false" selection-start-line="34" selection-start-column="66" selection-end-line="34" selection-end-column="66" />
           <folding>
             <element signature="e#1775#1776#0" expanded="true" />
             <element signature="e#1855#1856#0" expanded="true" />
