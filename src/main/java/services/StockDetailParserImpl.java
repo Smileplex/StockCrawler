@@ -3,6 +3,7 @@ package services;
 import com.google.inject.Inject;
 import hibernate.dao.StockDetailDao;
 import hibernate.dao.StockDetailKeywordDao;
+import hibernate.model.StockKeyword;
 import models.EmptyStockInfo;
 import models.StockInfo;
 import org.jsoup.nodes.Document;
@@ -19,6 +20,7 @@ public class StockDetailParserImpl implements StockDetailParser {
     private final StockFetcher stockFetcher;
     private final StockDetailDao stockDetailDao;
     private final StockDetailKeywordDao stockDetailKeywordDao;
+    private StockInfo stockInfo;
 
     @Inject
     public StockDetailParserImpl(PageReader pageReader, StockFetcher stockFetcher,
@@ -31,16 +33,40 @@ public class StockDetailParserImpl implements StockDetailParser {
     }
 
     @Override
-    public void parse(String link, int stockKeywordId) {
-        Document pageHtml = pageReader.read(link);
-        StockInfo stockInfo = stockFetcher.fetch(pageHtml, stockKeywordId);
+    public void parse(StockKeyword stockKeyword) {
+        stockInfo = getStockInfo(stockKeyword);
         if(stockInfo instanceof EmptyStockInfo)
             return;
 
-        int stockDetailId = stockDetailDao.save(stockInfo);
+        int stockDetailId = generateStockDetail();
         if(stockDetailId==NOT_EXIST)
             return;
-        logger.info(String.format("[%s | %s] updated",stockInfo.getStockName(),stockInfo.getStockCode()));
-        stockDetailKeywordDao.save(stockDetailId, stockKeywordId);
+
+        logProcess();
+        saveStockDetailKeyword(stockKeyword, stockDetailId);
     }
+
+    private StockInfo getStockInfo(StockKeyword stockKeyword) {
+        Document pageHtml = readPageHtml(stockKeyword.getLink());
+        return stockFetcher.fetch(pageHtml, stockKeyword.getId());
+    }
+
+    private Document readPageHtml(String link) {
+        return pageReader.read(link);
+    }
+    private int generateStockDetail() {
+        return stockDetailDao.save(stockInfo);
+    }
+
+    private void logProcess() {
+        logger.info(String.format("[%s | %s] updated", stockInfo.getStockName(), stockInfo.getStockCode()));
+    }
+
+    private int saveStockDetailKeyword(StockKeyword stockKeyword, int stockDetailId) {
+        return stockDetailKeywordDao.save(stockDetailId, stockKeyword.getId());
+    }
+
+
+
+
 }

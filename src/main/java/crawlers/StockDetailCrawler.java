@@ -17,10 +17,11 @@ import java.util.logging.Logger;
  */
 @Singleton
 public class StockDetailCrawler implements Crawler {
-    private static final Logger logger = Logger.getLogger(StockDetailCrawler.class.getName());
-    private static final int PARSING_FINISHED = 3;
+    private final Logger logger = Logger.getLogger(StockDetailCrawler.class.getName());
+    private final int PARSING_FINISHED = 3;
     private final StockKeywordDao stockKeywordDao;
     private final StockDetailParser stockDetailParser;
+    private StockKeyword stockKeyword;
 
     @Inject
     public StockDetailCrawler(StockKeywordDao stockKeywordDao, StockDetailParser stockDetailParser) {
@@ -34,11 +35,7 @@ public class StockDetailCrawler implements Crawler {
         for (int i = 0; i < numberOfCrawler; i++) {
             Thread thread = new Thread(() -> {
                 while (true) {
-                    StockKeyword stockKeyword = getStockKeyword();
-                    stockDetailParser.parse(stockKeyword.getLink(), stockKeyword.getId());
-                    stockKeyword.setStatus(PARSING_FINISHED);
-                    stockKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
-                    stockKeywordDao.update(stockKeyword);
+                    processParsing();
                 }
             });
             thread.start();
@@ -47,7 +44,24 @@ public class StockDetailCrawler implements Crawler {
         }
     }
 
-    private StockKeyword getStockKeyword() {
+    private void processParsing() {
+        stockKeyword = getCrawlableStockKeyword();
+        parseStockKeyword();
+        setCurrentStockKeywordStatusFinished();
+    }
+
+    private StockKeyword getCrawlableStockKeyword() {
         return stockKeywordDao.fetchFirstRow();
     }
+
+    private void parseStockKeyword() {
+        stockDetailParser.parse(stockKeyword);
+    }
+
+    private void setCurrentStockKeywordStatusFinished() {
+        stockKeyword.setStatus(PARSING_FINISHED);
+        stockKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
+        stockKeywordDao.update(stockKeyword);
+    }
+
 }
