@@ -43,7 +43,7 @@ public class StockDetailParserImpl implements StockDetailParser {
             return;
 
         logProcess();
-        saveStockDetailKeyword(stockDetailId, stockKeyword);
+        saveStockDetailKeyword(stockDetailId, stockKeyword.getId());
     }
 
     private StockInfo getStockInfo(StockKeyword stockKeyword) {
@@ -62,8 +62,8 @@ public class StockDetailParserImpl implements StockDetailParser {
         logger.info(String.format("[%s | %s] updated", stockInfo.getStockName(), stockInfo.getStockCode()));
     }
 
-    private int saveStockDetailKeyword(int stockDetailId, StockKeyword stockKeyword) {
-        return stockDetailKeywordDao.save(stockDetailId, stockKeyword.getId());
+    private int saveStockDetailKeyword(int stockDetailId, int stockKeywordId) {
+        return stockDetailKeywordDao.save(stockDetailId, stockKeywordId);
     }
 
 
