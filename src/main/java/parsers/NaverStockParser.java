@@ -27,7 +27,7 @@ public class NaverStockParser implements PageParser {
     @Override
     public KeywordInfo parse(Document pageHtml) {
         this.pageHtml = pageHtml;
-        this.keywordName = getKeywordName();
+        keywordName = getKeywordName();
         int keywordType = getKeywordType();
         if(keywordType == NOT_A_STOCK_KEYWORD) {
             return new EmptyKeywordInfo();
