@@ -37,7 +37,7 @@ public class StockKeywordParserImpl implements StockKeywordParser {
     @Override
     public ParsingResult parse(KeywordLinkQueue keywordLinkQueue) {
         this.keywordLinkQueue = keywordLinkQueue;
-        this.keywordInfo = parseKeywordInfo();
+        keywordInfo = parseKeywordInfo();
         if (keywordInfo instanceof EmptyKeywordInfo)
             return new EmptyParsingResult();
 
