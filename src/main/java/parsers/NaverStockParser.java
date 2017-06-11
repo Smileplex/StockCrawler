@@ -27,15 +27,15 @@ public class NaverStockParser implements PageParser {
     @Override
     public KeywordInfo parse(Document pageHtml) {
         this.pageHtml = pageHtml;
-        keywordName = parseKeywordName();
-        int keywordType = checkKeywordType();
+        this.keywordName = getKeywordName();
+        int keywordType = getKeywordType();
         if(keywordType == NOT_A_STOCK_KEYWORD) {
             return new EmptyKeywordInfo();
         }
-        return new KeywordInfo(keywordName, keywordType, parseRelatedKeywordLinks());
+        return new KeywordInfo(keywordName, keywordType, getRelatedKeywordLinks());
     }
 
-    private String parseKeywordName() {
+    private String getKeywordName() {
         try {
             return URLDecoder.decode(pageHtml.select("input#nx_query").attr("value").trim()
                     .replaceAll("주가", "")
@@ -46,7 +46,7 @@ public class NaverStockParser implements PageParser {
         return "";
     }
 
-    private int checkKeywordType() {
+    private int getKeywordType() {
         if (!isStockKeyword()) {
             if (isStockRelatedKeyword())
                 return STOCK_RELATED_KEYWORD;
@@ -65,16 +65,16 @@ public class NaverStockParser implements PageParser {
         return Helper.containValue("관련주,연관주,테마주,수혜주,대장주", keywordName);
     }
 
-    private List<String> parseRelatedKeywordLinks(){
+    private List<String> getRelatedKeywordLinks(){
         List<String> collectedLinks = new ArrayList<>();
-        for(Element anchorTag : parseAnchorTags()){
+        for(Element anchorTag : getAnchorTags()){
             String link = combineLinkWithSearchQuery(anchorTag);
             if(!collectedLinks.contains(link)) collectedLinks.add(link);
         }
         return collectedLinks;
     }
 
-    private Elements parseAnchorTags() {
+    private Elements getAnchorTags() {
         return pageHtml.select("div._rk_hcheck a");
     }
 

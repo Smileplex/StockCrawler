@@ -37,24 +37,24 @@ public class StockKeywordParserImpl implements StockKeywordParser {
     @Override
     public ParsingResult parse(KeywordLinkQueue keywordLinkQueue) {
         this.keywordLinkQueue = keywordLinkQueue;
-        keywordInfo = parseKeywordInfo();
+        keywordInfo = getKeywordInfo();
         if (keywordInfo instanceof EmptyKeywordInfo)
             return new EmptyParsingResult();
 
-        int stockKeywordId = generateKeywordId();
+        int stockKeywordId = getGeneratedKeywordId();
         saveRelatedKeywordLink(stockKeywordId);
 
         logStatus(keywordInfo, stockKeywordId);
         return new ParsingResult(keywordInfo.getRelatedKeywordLinks(), stockKeywordId);
     }
 
-    private KeywordInfo parseKeywordInfo() {
+    private KeywordInfo getKeywordInfo() {
         Document pageHtml = pageReader.read(keywordLinkQueue.getLink());
         PageParser pageParser = stockDetailsFactory.create(keywordLinkQueue.getAgentId());
         return pageParser.parse(pageHtml);
     }
 
-    private int generateKeywordId() {
+    private int getGeneratedKeywordId() {
         return stockKeywordGenerator.generate(keywordInfo, keywordLinkQueue);
     }
 
