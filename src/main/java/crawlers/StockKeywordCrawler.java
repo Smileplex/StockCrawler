@@ -21,6 +21,8 @@ public class StockKeywordCrawler implements Crawler {
     private static final int PARSING_FINISHED = 3;
     private final KeywordLinkQueueDao keywordLinkQueueDao;
     private final StockKeywordParser stockKeywordParser;
+    private KeywordLinkQueue keywordLinkQueue;
+    private ParsingResult parsingResult;
 
     @Inject
     public StockKeywordCrawler(KeywordLinkQueueDao keywordLinkQueueDao,
@@ -45,28 +47,28 @@ public class StockKeywordCrawler implements Crawler {
     }
 
     private void processParsing() {
-        KeywordLinkQueue keywordLinkQueue = getCrawlableLink();
-        ParsingResult parsingResult = getParsingResult(keywordLinkQueue);
+        this.keywordLinkQueue = getCrawlableLink();
+        this.parsingResult = getParsingResult();
         if (parsingResult instanceof EmptyParsingResult)
             return;
-        setCurrentLinkQueueStatusFinished(keywordLinkQueue);
-        saveNewKeywordLinkQueues(parsingResult, keywordLinkQueue);
+        setCurrentLinkQueueStatusFinished();
+        saveNewKeywordLinkQueues();
     }
 
     private KeywordLinkQueue getCrawlableLink() {
         return keywordLinkQueueDao.fetchFirstRow();
     }
 
-    private ParsingResult getParsingResult(KeywordLinkQueue keywordLinkQueue) {
-        return stockKeywordParser.processParsing(keywordLinkQueue);
+    private ParsingResult getParsingResult() {
+        return stockKeywordParser.parse(keywordLinkQueue);
     }
 
-    private void setCurrentLinkQueueStatusFinished(KeywordLinkQueue keywordLinkQueue) {
+    private void setCurrentLinkQueueStatusFinished() {
         keywordLinkQueue.setStatus(PARSING_FINISHED);
         keywordLinkQueueDao.update(keywordLinkQueue);
     }
 
-    private void saveNewKeywordLinkQueues(ParsingResult parsingResult, KeywordLinkQueue keywordLinkQueue) {
+    private void saveNewKeywordLinkQueues() {
         keywordLinkQueueDao.saveAll(parsingResult, keywordLinkQueue);
     }
 

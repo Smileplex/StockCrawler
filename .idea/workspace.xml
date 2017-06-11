@@ -16,6 +16,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParser.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParserImpl.class" afterPath="$PROJECT_DIR$/build/classes/main/services/StockKeywordParserImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" afterPath="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" afterPath="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/PageParser.java" afterPath="$PROJECT_DIR$/src/main/java/services/PageParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/StockKeywordParser.java" afterPath="$PROJECT_DIR$/src/main/java/services/StockKeywordParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" afterPath="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -43,14 +47,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="StockKeywordCrawler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StockKeywordCrawler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1392">
-              <caret line="60" column="36" lean-forward="false" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+            <state relative-caret-position="903">
+              <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
               <folding>
-                <element signature="e#1908#1909#0" expanded="true" />
-                <element signature="e#1966#1967#0" expanded="true" />
+                <element signature="e#2018#2019#0" expanded="true" />
+                <element signature="e#2083#2084#0" expanded="true" />
+                <element signature="e#2300#2301#0" expanded="true" />
+                <element signature="e#2376#2377#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,14 +72,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StockKeywordParserImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StockKeywordParserImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="932">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="700">
+              <caret line="41" column="44" lean-forward="true" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
               <folding>
-                <element signature="e#2198#2199#0" expanded="true" />
-                <element signature="e#2282#2283#0" expanded="true" />
+                <element signature="e#2180#2181#0" expanded="true" />
+                <element signature="e#2264#2265#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,13 +128,13 @@
       <file leaf-file-name="NaverStockParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="406">
+              <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
               <folding>
-                <element signature="e#1775#1776#0" expanded="true" />
-                <element signature="e#1855#1856#0" expanded="true" />
-                <element signature="e#1902#1903#0" expanded="true" />
-                <element signature="e#1980#1981#0" expanded="true" />
+                <element signature="e#1766#1767#0" expanded="true" />
+                <element signature="e#1846#1847#0" expanded="true" />
+                <element signature="e#1893#1894#0" expanded="true" />
+                <element signature="e#1971#1972#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -539,9 +545,9 @@
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordLinkQueueDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernate/dao/KeywordLinkQueueDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/modules/CrawlerModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" />
         <option value="$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java" />
       </list>
     </option>
   </component>
@@ -1195,7 +1201,7 @@
       <workItem from="1497123477655" duration="3073000" />
       <workItem from="1497129004019" duration="8268000" />
       <workItem from="1497138929145" duration="40000" />
-      <workItem from="1497208557274" duration="1293000" />
+      <workItem from="1497208557274" duration="1551000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring and StockInfo(POJO) added in.">
       <created>1496268332508</created>
@@ -1246,7 +1252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497209561114</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="StockKeywordParser refactoring.">
+      <created>1497209866803</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1497209866803</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1258,7 +1271,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190301000" />
+    <option name="totallyTimeSpent" value="190559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-12" y="0" width="2894" height="1754" extended-state="0" />
@@ -1319,7 +1332,8 @@
     <MESSAGE value="Logging added, and refactoring" />
     <MESSAGE value="StockKeywordCrawler refactoring in terms of the methods from clean code." />
     <MESSAGE value="NaverStockParser using instance variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="NaverStockParser using instance variables." />
+    <MESSAGE value="StockKeywordParser refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="StockKeywordParser refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1625,14 +1639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hibernate/dao/StockKeywordDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
@@ -1646,30 +1652,6 @@
         <state relative-caret-position="754">
           <caret line="31" column="45" lean-forward="false" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1392">
-          <caret line="60" column="36" lean-forward="false" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-          <folding>
-            <element signature="e#1908#1909#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1855#1856#0" expanded="true" />
-            <element signature="e#1902#1903#0" expanded="true" />
-            <element signature="e#1980#1981#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1705,13 +1687,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parsers/NaverStockParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding>
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1846#1847#0" expanded="true" />
+            <element signature="e#1893#1894#0" expanded="true" />
+            <element signature="e#1971#1972#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParserImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="932">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        <state relative-caret-position="700">
+          <caret line="41" column="44" lean-forward="true" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
           <folding>
-            <element signature="e#2198#2199#0" expanded="true" />
-            <element signature="e#2282#2283#0" expanded="true" />
+            <element signature="e#2180#2181#0" expanded="true" />
+            <element signature="e#2264#2265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/services/StockKeywordParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/crawlers/StockKeywordCrawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
+          <folding>
+            <element signature="e#2018#2019#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+            <element signature="e#2300#2301#0" expanded="true" />
+            <element signature="e#2376#2377#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -25,7 +25,7 @@ public class NaverStockParser implements PageParser {
     private String keywordName;
 
     @Override
-    public KeywordInfo processParsing(Document pageHtml) {
+    public KeywordInfo parse(Document pageHtml) {
         this.pageHtml = pageHtml;
         this.keywordName = getKeywordName();
         int keywordType = getKeywordType();
