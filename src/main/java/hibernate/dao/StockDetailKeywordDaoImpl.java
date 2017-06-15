@@ -39,7 +39,6 @@ public class StockDetailKeywordDaoImpl extends AbstractDao<Integer, StockDetailK
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
-            e.printStackTrace();
         }
         return stockDetailKeywordId;
     }

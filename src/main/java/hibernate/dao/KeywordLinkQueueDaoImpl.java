@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Singleton
 public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQueue> implements KeywordLinkQueueDao {
 
 	public KeywordLinkQueue findByLink(String link) {
@@ -34,18 +33,18 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 	@Override
 	public void saveAll(ParsingResult parsingResult, KeywordLinkQueue keywordLinkQueue) {
 		for(String link : parsingResult.getLinks()){
-			saveIfNotExist(link, keywordLinkQueue);
+			saveIfNotExist(link, parsingResult.getKeywordId(), keywordLinkQueue);
 		}
 	}
 
-	private void saveIfNotExist(String link, KeywordLinkQueue currentKeywordLinkQueue) {
+	private void saveIfNotExist(String link, int parentId, KeywordLinkQueue keywordLinkQueue) {
 		Session session = getSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
 			Criteria crit = session.createCriteria(KeywordLinkQueue.class);
 			crit.add(Restrictions.eq("link", link));
-			crit.add(Restrictions.eq("parentId", currentKeywordLinkQueue.getParentId()));
+			crit.add(Restrictions.eq("parentId", keywordLinkQueue.getParentId()));
 
 			KeywordLinkQueue entityKeywordLinkQueue = (KeywordLinkQueue) crit.setMaxResults(1).uniqueResult();
 
@@ -54,15 +53,14 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 				newKeywordLinkQueue.setLink(link);
 				newKeywordLinkQueue.setStatus(1);
 				newKeywordLinkQueue.setDateCreated(new Timestamp(new Date().getTime()));
-				newKeywordLinkQueue.setAgentId(currentKeywordLinkQueue.getAgentId());
-				newKeywordLinkQueue.setParentId(currentKeywordLinkQueue.getParentId());
+				newKeywordLinkQueue.setAgentId(keywordLinkQueue.getAgentId());
+				newKeywordLinkQueue.setParentId(parentId);
 				session.save(newKeywordLinkQueue);
 			}
 			// TODO Auto-generated method stub
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			System.out.println("Duplicated insert occured in KeywordLinkQueue");;
 		}
 
 	}
@@ -87,10 +85,9 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 		try {
 			tx = session.beginTransaction();
 			Query query = session.createQuery(
-					"from KeywordLinkQueue a where Status = 1 or (BookingDate < :time1 and status = 2) or (BookingDate < :time2 and status = 3) order by status, Id");
+					"from KeywordLinkQueue a where Status = 1 or (BookingDate < :time1 and status = 2) order by status, Id");
 			query.setParameter("time1", new Timestamp(new Date().getTime() - 10 * 60 * 1000));
-			query.setParameter("time2", new Timestamp(new Date().getTime() - 1 * 24 * 60 * 60 * 1000));
-			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
+//			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
 			query.setMaxResults(1);
 
 			List<KeywordLinkQueue> result = query.list();

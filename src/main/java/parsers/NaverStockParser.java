@@ -28,18 +28,20 @@ public class NaverStockParser implements PageParser {
     public KeywordInfo parse(Document pageHtml) {
         this.pageHtml = pageHtml;
         keywordName = getKeywordName();
+
         int keywordType = getKeywordType();
         if(keywordType == NOT_A_STOCK_KEYWORD) {
             return new EmptyKeywordInfo();
         }
+
         return new KeywordInfo(keywordName, keywordType, getRelatedKeywordLinks());
     }
 
     private String getKeywordName() {
         try {
-            return URLDecoder.decode(pageHtml.select("input#nx_query").attr("value").trim()
+            return URLDecoder.decode(pageHtml.select("input#nx_query").attr("value")
                     .replaceAll("주가", "")
-                    .replaceAll("주식", ""),"UTF-8");
+                    .replaceAll("주식", ""),"UTF-8").trim();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

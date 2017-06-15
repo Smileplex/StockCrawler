@@ -10,7 +10,6 @@ import models.KeywordInfo;
 /**
  * Created by DongwooSeo on 2017-05-28.
  */
-@Singleton
 public class StockKeywordGeneratorImpl implements StockKeywordGenerator {
 
     private final StockKeywordDao stockKeywordDao;

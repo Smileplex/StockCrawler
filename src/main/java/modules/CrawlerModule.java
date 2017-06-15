@@ -1,9 +1,7 @@
 package modules;
 
 import com.google.inject.AbstractModule;
-import crawlers.StockDetailCrawler;
-import crawlers.StockKeywordCrawler;
-import crawlers.Crawler;
+import crawlers.*;
 import hibernate.dao.*;
 import services.*;
 
@@ -13,7 +11,7 @@ import services.*;
 public class CrawlerModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(Crawler.class).to(StockDetailCrawler.class);
+        bind(Crawler.class).toProvider(StockDetailCrawlerProvider.class);
         bind(KeywordMainDao.class).to(KeywordMainDaoImpl.class);
         bind(StockDetailDao.class).to(StockDetailDaoImpl.class);
         bind(StockKeywordDao.class).to(StockKeywordDaoImpl.class);

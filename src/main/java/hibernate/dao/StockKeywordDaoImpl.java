@@ -12,7 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
-@Singleton
 public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> implements StockKeywordDao {
 		private static final Logger logger = Logger.getLogger(StockKeywordDaoImpl.class.getName());
 	public StockKeyword fetchFirstRow() {
@@ -24,23 +23,22 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 		try {
 			tx = session.beginTransaction();
 			Query query = session.createQuery(
-					"from StockKeyword a where TypeId=1 order by DateUpdated asc");
-			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
+					"from StockKeyword a where status = 1 or (DateUpdated < :time1 and status = 3) order by DateUpdated asc");
+			query.setParameter("time1", new Timestamp(new Date().getTime() - 10 * 60 * 1000));
+//			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
 			query.setMaxResults(1);
-
 			List<StockKeyword> result = query.list();
-
 			if (!result.isEmpty()) {
 				stockKeyword = result.get(0);
 				stockKeyword.setStatus(2);
 				stockKeyword.setDateUpdated(new Timestamp(new Date().getTime()));
 				session.update(stockKeyword);
+			}else{
+				stockKeyword = new EmptyStockKeyword();
 			}
-
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			System.out.println("rollback");
 		}
 		return stockKeyword;
 	}
@@ -74,7 +72,6 @@ public class StockKeywordDaoImpl extends AbstractDao<Integer, StockKeyword> impl
 			} else {
 				stockKeywordId = entityKeyword.getId();
 			}
-
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();

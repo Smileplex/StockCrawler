@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 /**
  * Created by DongwooSeo on 2017-05-28.
  */
-@Singleton
 public class StockFetcherImpl implements StockFetcher{
     private static final Logger logger = Logger.getLogger(StockFetcherImpl.class.getName());
     public static final String STOCK_REQUEST_URL =
@@ -35,6 +34,7 @@ public class StockFetcherImpl implements StockFetcher{
         String stockCode = getStockCode(document);
         try {
             Document rawResult = pageReader.read(String.format(STOCK_REQUEST_URL,stockCode));
+
             StockInfo stockInfo = objectMapper.readValue(getJsonStock(rawResult), StockInfo.class);
             stockInfo.setStockName(stockName);
             stockInfo.setStockCode(stockCode);

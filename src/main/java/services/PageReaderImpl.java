@@ -16,7 +16,6 @@ import java.util.Map;
 /**
  * Created by DongwooSeo on 2017-05-28.
  */
-@Singleton
 public class PageReaderImpl implements PageReader {
     public Document read(String link) {
         Map<String,String> headers = new HashMap<>();

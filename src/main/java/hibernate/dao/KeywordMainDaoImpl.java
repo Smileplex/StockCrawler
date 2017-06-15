@@ -10,7 +10,6 @@ import org.hibernate.criterion.Restrictions;
 import java.sql.Timestamp;
 import java.util.Date;
 
-@Singleton
 public class KeywordMainDaoImpl extends AbstractDao<Integer, KeywordMain> implements KeywordMainDao {
 
 	public KeywordMain findByName(String name) {
@@ -65,7 +64,7 @@ public class KeywordMainDaoImpl extends AbstractDao<Integer, KeywordMain> implem
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 		return keywordMainId;

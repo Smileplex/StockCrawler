@@ -5,6 +5,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import java.util.logging.Level;
+
 public class HibernateUtil {
 
 	//XML based configuration
@@ -13,6 +15,7 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
     	try {
             // Create the SessionFactory from hibernate.cfg.xml
+			java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         	Configuration configuration = new Configuration();
         	configuration.configure("hibernate.cfg.xml");
         	System.out.println("Hibernate Configuration loaded");

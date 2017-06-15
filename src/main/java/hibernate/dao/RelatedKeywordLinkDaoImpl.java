@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-@Singleton
 public class RelatedKeywordLinkDaoImpl extends AbstractDao<Integer, RelatedKeywordLink>
 		implements RelatedKeywordLinkDao {
 

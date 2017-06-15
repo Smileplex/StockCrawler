@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 /**
  * Created by DongwooSeo on 2017-05-29.
  */
-@Singleton
 public class StockKeywordParserImpl implements StockKeywordParser {
     private static final Logger logger = Logger.getLogger(StockDetailParserImpl.class.getName());
     private final PageReader pageReader;
@@ -63,7 +62,7 @@ public class StockKeywordParserImpl implements StockKeywordParser {
     }
 
     private void logStatus(KeywordInfo keywordInfo, int stockKeywordId) {
-        logger.info(String.format("%s [Type : %s] [StockKeywordId : %d]",
+        logger.info(String.format("[%s] [%s] [Type : %s] [StockKeywordId : %d]", Thread.currentThread().getName(),
                 keywordInfo.getKeywordName(), keywordInfo.getKeywordType(), stockKeywordId));
     }
 }

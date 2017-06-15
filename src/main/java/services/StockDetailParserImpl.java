@@ -35,12 +35,14 @@ public class StockDetailParserImpl implements StockDetailParser {
     @Override
     public void parse(StockKeyword stockKeyword) {
         stockInfo = getStockInfo(stockKeyword);
-        if(stockInfo instanceof EmptyStockInfo)
+        if(stockInfo instanceof EmptyStockInfo) {
             return;
+        }
 
         int stockDetailId = generateStockDetail();
-        if(stockDetailId==NOT_EXIST)
+        if(stockDetailId==NOT_EXIST) {
             return;
+        }
 
         logProcess();
         saveStockDetailKeyword(stockDetailId, stockKeyword.getId());
@@ -51,19 +53,15 @@ public class StockDetailParserImpl implements StockDetailParser {
         return stockFetcher.fetch(pageHtml, stockKeyword.getId());
     }
 
-    private int generateStockDetail() {
-        return stockDetailDao.save(stockInfo);
+    private void logProcess() {
+        logger.info(String.format("[%s | %s] updated",stockInfo.getStockName(), stockInfo.getStockCode()));
     }
 
-    private void logProcess() {
-        logger.info(String.format("[%s | %s] updated", stockInfo.getStockName(), stockInfo.getStockCode()));
+    private int generateStockDetail() {
+        return stockDetailDao.save(stockInfo);
     }
 
     private int saveStockDetailKeyword(int stockDetailId, int stockKeywordId) {
         return stockDetailKeywordDao.save(stockDetailId, stockKeywordId);
     }
-
-
-
-
 }
