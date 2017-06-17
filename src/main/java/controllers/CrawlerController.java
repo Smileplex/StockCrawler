@@ -29,4 +29,8 @@ public class CrawlerController {
            threads.add(thread);
         }
     }
+
+    private class Publisher{
+
+    }
 }

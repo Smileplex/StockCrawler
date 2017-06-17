@@ -87,7 +87,7 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			Query query = session.createQuery(
 					"from KeywordLinkQueue a where Status = 1 or (BookingDate < :time1 and status = 2) order by status, Id");
 			query.setParameter("time1", new Timestamp(new Date().getTime() - 10 * 60 * 1000));
-//			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
+			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
 			query.setMaxResults(1);
 
 			List<KeywordLinkQueue> result = query.list();
