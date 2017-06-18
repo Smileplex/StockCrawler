@@ -5,5 +5,5 @@ package app;
  */
 public class AppSettings {
     public static final int TIMEOUT = 30000;
-    public static final int CRAWLER_THREADS = 6;
+    public static final int CRAWLER_THREADS = 5;
 }

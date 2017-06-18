@@ -4,6 +4,7 @@ import com.google.inject.Singleton;
 import hibernate.model.KeywordLinkQueue;
 import models.ParsingResult;
 import org.hibernate.*;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 
 import java.sql.Timestamp;
@@ -44,10 +45,9 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			tx = session.beginTransaction();
 			Criteria crit = session.createCriteria(KeywordLinkQueue.class);
 			crit.add(Restrictions.eq("link", link));
-			crit.add(Restrictions.eq("parentId", keywordLinkQueue.getParentId()));
+			crit.add(Restrictions.eq("parentId", parentId));
 
 			KeywordLinkQueue entityKeywordLinkQueue = (KeywordLinkQueue) crit.setMaxResults(1).uniqueResult();
-
 			if (entityKeywordLinkQueue == null) {
 				KeywordLinkQueue newKeywordLinkQueue = new KeywordLinkQueue();
 				newKeywordLinkQueue.setLink(link);
@@ -57,9 +57,10 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 				newKeywordLinkQueue.setParentId(parentId);
 				session.save(newKeywordLinkQueue);
 			}
-			// TODO Auto-generated method stub
 			tx.commit();
+			// TODO Auto-generated method stub
 		} catch (Exception e) {
+//			e.printStackTrace();
 			tx.rollback();
 		}
 
@@ -87,7 +88,7 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			Query query = session.createQuery(
 					"from KeywordLinkQueue a where Status = 1 or (BookingDate < :time1 and status = 2) order by status, Id");
 			query.setParameter("time1", new Timestamp(new Date().getTime() - 10 * 60 * 1000));
-			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
+//			query.setLockMode("a", LockMode.PESSIMISTIC_WRITE);
 			query.setMaxResults(1);
 
 			List<KeywordLinkQueue> result = query.list();
@@ -100,6 +101,7 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 				keywordLinkQueue.setBookingDate(new Timestamp(new Date().getTime()));
 				session.update(keywordLinkQueue);
 			}
+
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();

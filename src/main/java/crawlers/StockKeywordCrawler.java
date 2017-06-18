@@ -1,5 +1,6 @@
 package crawlers;
 
+import hibernate.dao.EmptyKeywordLinkQueue;
 import hibernate.dao.KeywordLinkQueueDao;
 import hibernate.dao.KeywordLinkQueueDaoImpl;
 import hibernate.model.KeywordLinkQueue;

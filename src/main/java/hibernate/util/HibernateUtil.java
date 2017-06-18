@@ -15,7 +15,7 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
     	try {
             // Create the SessionFactory from hibernate.cfg.xml
-			java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+//			java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         	Configuration configuration = new Configuration();
         	configuration.configure("hibernate.cfg.xml");
         	System.out.println("Hibernate Configuration loaded");
