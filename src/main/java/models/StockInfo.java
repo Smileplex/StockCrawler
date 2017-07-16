@@ -18,6 +18,7 @@ public class StockInfo {
     private int lowVal;
     private int priceChange;
     private double priceChangeRate;
+    private int risefall;
     private String chartDailyUrl;
     private String chartWeeklyUrl;
     private String chartMonthlyUrl;
@@ -84,6 +85,14 @@ public class StockInfo {
 
     public void setPriceChangeRate(double priceChangeRate) {
         this.priceChangeRate = priceChangeRate;
+    }
+
+    public int getRisefall() {
+        return risefall;
+    }
+
+    public void setRisefall(int risefall) {
+        this.risefall = risefall;
     }
 
     public String getChartDailyUrl() {

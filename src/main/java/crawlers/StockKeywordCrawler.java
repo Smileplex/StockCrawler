@@ -40,7 +40,8 @@ public class StockKeywordCrawler implements Crawler {
 
     private void processParsing() {
         keywordLinkQueue = getCrawlableLink();
-        if (keywordLinkQueue == null) {
+        if (keywordLinkQueue instanceof EmptyKeywordLinkQueue) {
+            logger.warning("EmptyKeywordLinkQueue fetched");
             return;
         }
         parsingResult = getParsingResult();

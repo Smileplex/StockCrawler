@@ -12,12 +12,13 @@ public class StockDetail {
 	private int priceMin;
 	private int fluct;
 	private Double fluctRate;
+	private int riseFall;
 	private String chartDaily;
 	private String chartWeekly;
 	private String chartMonthly;
 	private Timestamp dateCreated;
 	private Timestamp dateUpdated;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -65,6 +66,12 @@ public class StockDetail {
 	}
 	public void setFluct(int fluct) {
 		this.fluct = fluct;
+	}
+	public int getRiseFall() {
+		return riseFall;
+	}
+	public void setRiseFall(int riseFall) {
+		this.riseFall = riseFall;
 	}
 	public Double getFluctRate() {
 		return fluctRate;

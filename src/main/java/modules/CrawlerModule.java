@@ -11,7 +11,7 @@ import services.*;
 public class CrawlerModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(Crawler.class).toProvider(StockKeywordCrawlerProvider.class);
+        bind(Crawler.class).toProvider(StockDetailCrawlerProvider.class);
         bind(KeywordMainDao.class).to(KeywordMainDaoImpl.class);
         bind(StockDetailDao.class).to(StockDetailDaoImpl.class);
         bind(StockKeywordDao.class).to(StockKeywordDaoImpl.class);

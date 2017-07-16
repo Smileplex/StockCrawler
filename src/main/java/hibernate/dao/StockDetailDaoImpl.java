@@ -1,8 +1,5 @@
 package hibernate.dao;
 
-import com.google.inject.Singleton;
-import hibernate.model.KeywordLinkQueue;
-import hibernate.model.KeywordMain;
 import hibernate.model.StockDetail;
 import models.StockInfo;
 import org.hibernate.Criteria;
@@ -43,6 +40,7 @@ public class StockDetailDaoImpl extends AbstractDao<Integer, StockDetail> implem
 					stockDetail.setPriceMin(stockInfo.getLowVal());
 					stockDetail.setFluct(stockInfo.getPriceChange());
 					stockDetail.setFluctRate(stockInfo.getPriceChangeRate());
+					stockDetail.setRiseFall(stockInfo.getRisefall());
 					stockDetail.setChartDaily(stockInfo.getChartDailyUrl());
 					stockDetail.setChartWeekly(stockInfo.getChartWeeklyUrl());
 					stockDetail.setChartMonthly(stockInfo.getChartMonthlyUrl());
@@ -56,6 +54,7 @@ public class StockDetailDaoImpl extends AbstractDao<Integer, StockDetail> implem
 					entityStockDetail.setPriceMin(stockInfo.getLowVal());
 					entityStockDetail.setFluct(stockInfo.getPriceChange());
 					entityStockDetail.setFluctRate(stockInfo.getPriceChangeRate());
+					entityStockDetail.setRiseFall(stockInfo.getRisefall());
 					entityStockDetail.setChartDaily(stockInfo.getChartDailyUrl());
 					entityStockDetail.setChartWeekly(stockInfo.getChartWeeklyUrl());
 					entityStockDetail.setChartMonthly(stockInfo.getChartMonthlyUrl());

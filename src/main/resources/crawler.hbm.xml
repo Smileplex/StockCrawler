@@ -260,14 +260,17 @@
 		<property name="fluctRate" type="double">
 			<column name = "FluctRate"/>
 		</property>
+		<property name="riseFall" type="int">
+			<column name = "RiseFall"/>
+		</property>
 		<property name="chartDaily" type="java.lang.String">
 			<column name = "ChartDaily"/>
 		</property>
 		<property name="chartWeekly" type="java.lang.String">
-			<column name = "chartWeekly"/>
+			<column name = "ChartWeekly"/>
 		</property>
 		<property name="chartMonthly" type="java.lang.String">
-			<column name = "chartMonthly"/>
+			<column name = "ChartMonthly"/>
 		</property>
 		<property name="dateCreated" type="timestamp">
 			<column name="DateCreated"/>

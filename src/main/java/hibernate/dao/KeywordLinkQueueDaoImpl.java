@@ -96,10 +96,13 @@ public class KeywordLinkQueueDaoImpl extends AbstractDao<Integer, KeywordLinkQue
 			if (!result.isEmpty()) {
 				keywordLinkQueue = result.get(0);
 			}
+
 			if (keywordLinkQueue != null) {
 				keywordLinkQueue.setStatus(2);
 				keywordLinkQueue.setBookingDate(new Timestamp(new Date().getTime()));
 				session.update(keywordLinkQueue);
+			}else{
+				keywordLinkQueue = new EmptyKeywordLinkQueue();
 			}
 
 			tx.commit();
